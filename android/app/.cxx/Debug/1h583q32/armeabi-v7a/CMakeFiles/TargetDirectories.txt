@@ -1,0 +1,2 @@
+C:/projects/khadamat/android/app/.cxx/Debug/1h583q32/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/projects/khadamat/android/app/.cxx/Debug/1h583q32/armeabi-v7a/CMakeFiles/rebuild_cache.dir
