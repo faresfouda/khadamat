@@ -1,3 +1,5 @@
+import 'package:khadamat/core/api/end_point.dart';
+
 class ErrorModel {
   final String message;
   final int? code;
@@ -6,8 +8,8 @@ class ErrorModel {
 
   factory ErrorModel.fromJson(Map<String, dynamic> json) {
     return ErrorModel(
-      message: json['status'] ?? 'Unknown error',
-      code: json['Error_message'],
+      message: json[ApiKey.status] ?? 'Unknown error',
+      code: json[ApiKey.error] ?? 0,
     );
   }
 }
