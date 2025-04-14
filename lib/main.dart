@@ -41,7 +41,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Enter your email',
                 border: OutlineInputBorder(),
               ),
@@ -49,7 +49,7 @@ class MyHomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Enter your passwoerd',
                 border: OutlineInputBorder(),
               ),
