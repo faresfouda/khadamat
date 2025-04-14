@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:khadamat/core/api/dio_consumer.dart';
-import 'package:khadamat/core/api/end_point.dart';
+import 'package:khadamat/services/api/dio_consumer.dart';
+import 'package:khadamat/services/api/end_point.dart';
+
 
 void main() {
   runApp(const MyApp());
