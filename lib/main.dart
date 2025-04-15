@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/Get_Binding/My_Binding.dart';
 import 'package:khadamat/Screens/Intro_Screen.dart';
+import 'package:khadamat/Screens/SignIn.dart';
+import 'package:khadamat/Screens/SignUp.dart';
 
 void main() {
   runApp(const MrFixApp());
@@ -25,6 +27,14 @@ class MrFixApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => IntroScreen()),
+        GetPage(
+          name: '/signin',
+          page: () => const Signin(),
+        ),
+        GetPage(
+          name: '/signup',
+          page: () => const SignUp(),
+        )
       ],
     );
   }

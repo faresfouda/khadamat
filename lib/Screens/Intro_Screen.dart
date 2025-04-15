@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:khadamat/Get/Custom_intro_text/Title_IntroText.dart';
-import 'package:khadamat/Get/Custom_intro_text/subTitle_intro.dart';
+import 'package:khadamat/Custom_intro_text/Title_IntroText.dart';
+import 'package:khadamat/Custom_intro_text/subTitle_intro.dart';
 import 'package:khadamat/Get/Get_intro.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

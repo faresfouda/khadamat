@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
 
 class GetIntro extends GetxController {
   Map<String, dynamic> IntroData = {
@@ -7,7 +7,7 @@ class GetIntro extends GetxController {
       'خدمات شاملة',
       'سوف تجد هنا جميع الخدمات التي قد نحتاج إليها في إصلاح اعطال منزلك !'
     ],
-    'assets/IntroTwo.png': [
+    'assets/introTwo.png': [
       'سريع ومريح!',
       'تستطيع العثور على العامل الأقرب لك  وأنت في منزلك بكل سهولة وسرعة !'
     ],
@@ -17,8 +17,15 @@ class GetIntro extends GetxController {
     ]
   };
   PageController pageController = PageController();
+  RxBool isLastpage = false.obs;
   void skip() {
     pageController.nextPage(
         duration: (const Duration(seconds: 1)), curve: Curves.easeIn);
+    if (pageController.page! + 1 == IntroData.length) {
+      isLastpage.value = true;
+      Get.offAllNamed('signin');
+    } else {
+      isLastpage.value = false;
+    }
   }
 }
