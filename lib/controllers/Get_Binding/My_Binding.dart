@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:khadamat/Get/Get_intro.dart';
+import 'package:khadamat/controllers/Get_intro.dart';
 
 class MyBinding extends Bindings {
   @override

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:khadamat/Get_Binding/My_Binding.dart';
-import 'package:khadamat/Screens/Intro_Screen.dart';
-import 'package:khadamat/Screens/SignIn.dart';
-import 'package:khadamat/Screens/SignUp.dart';
+import 'package:khadamat/controllers/Get_Binding/My_Binding.dart';
+import 'package:khadamat/views/Home.dart';
+import 'package:khadamat/views/Intro_Screen.dart';
+import 'package:khadamat/views/SignIn.dart';
+import 'package:khadamat/views/SignUp.dart';
 
 void main() {
   runApp(const MrFixApp());
@@ -29,11 +30,15 @@ class MrFixApp extends StatelessWidget {
         GetPage(name: '/', page: () => IntroScreen()),
         GetPage(
           name: '/signin',
-          page: () => const Signin(),
+          page: () => Signin(),
         ),
         GetPage(
           name: '/signup',
-          page: () => const SignUp(),
+          page: () => SignUp(),
+        ),
+        GetPage(
+          name: '/home',
+          page: () => const Home(),
         )
       ],
     );

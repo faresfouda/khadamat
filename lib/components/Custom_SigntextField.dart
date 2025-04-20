@@ -5,13 +5,15 @@ class CustomSigntextfield extends StatelessWidget {
     super.key,
     required this.textfield_title,
     required this.hint_text,
-    required this.field_icon,
+    required this.field_icon, required this.obscureText,
   });
   final String textfield_title;
   final String hint_text;
-  final Icon? field_icon;
+  final IconButton? field_icon;
+  final bool obscureText;
 
   @override
+
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -32,23 +34,25 @@ class CustomSigntextfield extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(right: 16, left: 16),
-          child: TextField(
+          child: TextFormField(
+              obscureText: obscureText,
+              obscuringCharacter: '*',
               decoration: InputDecoration(
-            suffixIcon: field_icon,
-            filled: true,
-            fillColor: Colors.white,
-            hintText: hint_text,
-            hintStyle: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: Color(0xFFC0C0C0)),
-            focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Color(0xFFDFDFDF)),
-                borderRadius: BorderRadius.circular(16)),
-            enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Color(0xFFDFDFDF)),
-                borderRadius: BorderRadius.circular(16)),
-          )),
+                suffixIcon: field_icon,
+                filled: true,
+                fillColor: Colors.white,
+                hintText: hint_text,
+                hintStyle: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFFC0C0C0)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Color(0xFFDFDFDF)),
+                    borderRadius: BorderRadius.circular(16)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Color(0xFFDFDFDF)),
+                    borderRadius: BorderRadius.circular(16)),
+              )),
         ),
         const SizedBox(
           height: 8,

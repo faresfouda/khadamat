@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:khadamat/Custom_intro_text/Title_IntroText.dart';
-import 'package:khadamat/Custom_intro_text/subTitle_intro.dart';
-import 'package:khadamat/Get/Get_intro.dart';
+import 'package:khadamat/components/Title_IntroText.dart';
+import 'package:khadamat/components/subTitle_intro.dart';
+import 'package:khadamat/controllers/Get_intro.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroScreen extends StatelessWidget {
