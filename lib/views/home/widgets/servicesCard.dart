@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:khadamat/views/servicecategory/serice_category.dart';
+
+class ServicesCard extends StatelessWidget{
+  final Image image;
+  final String title;
+
+  const ServicesCard({super.key, required this.image, required this.title});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      child: Column(
+        children: [
+          GestureDetector(
+            child: Container(
+              height: 70,
+              width: 100,
+              child: image,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  width: 1,
+                  color: Color(0xFFF4F4F4),
+                ),
+              ),
+            ),
+            onTap: (){
+              Get.to(ServiceCategoryScreen());
+            },
+          ),
+          SizedBox(height: 6,),
+          Text(title,textAlign: TextAlign.center,style: TextStyle(fontSize: 12,color: Color(0xFF133848)),)
+        ],
+      ),
+    );
+  }
+
+}
+
+final services = [
+  {'service': 'التشطيبات', 'image': 'assets/house.png'},
+  {'service': 'النقل والتوصيل', 'image': 'assets/truck.png'},
+  {'service': 'التشطيبات', 'image': 'assets/house.png'},
+];
