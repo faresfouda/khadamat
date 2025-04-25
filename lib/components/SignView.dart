@@ -36,14 +36,10 @@ class SignView extends StatelessWidget {
                   child: Text(
                     textAlign: TextAlign.center,
                     screentitle,
-                    style: const TextStyle(
-                        color: Color(0xFF4ECDC4),
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700),
+                    style: Theme.of(context).textTheme.labelLarge,
                   ),
                 ),
               ),
-            
               Expanded(child: ListView(children: [Child])),
             ],
           ),

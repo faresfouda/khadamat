@@ -15,14 +15,8 @@ class Signin extends StatelessWidget {
       iconchild: null,
       Logo: 'assets/login.png',
       Child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 25,
-          ),
-          const SizedBox(
-            height: 8,
-          ),
           const CustomSigntextfield(
             textfield_title: 'البريد الالكتروني او رقم الهاتف',
             hint_text: 'ادخل البريد الالكتروني او رقم الهاتف',
@@ -51,13 +45,8 @@ class Signin extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8),
                 child: TextButton(
                   onPressed: () {},
-                  child: const Text(
-                    'هل نسيت كلمة السر ؟',
-                    style: TextStyle(
-                        color: Color(0xFF4ECDC4),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400),
-                  ),
+                  child: Text('هل نسيت كلمة السر ؟',
+                      style: Theme.of(context).textTheme.titleSmall),
                 ),
               ),
               const SizedBox(
@@ -65,41 +54,29 @@ class Signin extends StatelessWidget {
               ),
             ],
           ),
-          MaterialButton(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            color: const Color(0xFF4ECDC4),
-            onPressed: () {
-              Get.offAllNamed('home');
-            },
-            height: 60,
-            minWidth: 342,
-            child: const Text(
-              'تسجيل الدخول',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700),
-            ),
-          ),
+          FilledButton(
+              onPressed: () {
+                Get.offAllNamed('workermap');
+              },
+              child: Text(
+                'تسجيل الدخول',
+                style: Theme.of(context).textTheme.bodyMedium,
+              )),
           const SizedBox(
             height: 16,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 95,
                 child: Divider(
                   endIndent: 5,
                 ),
               ),
               Text('او يمكنك التسجيل عبر',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFFC0C0C0))),
-              SizedBox(
+                  style: Theme.of(context).textTheme.labelSmall),
+              const SizedBox(
                 width: 95,
                 child: Divider(
                   indent: 5,

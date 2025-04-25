@@ -19,16 +19,13 @@ class SignUp extends StatelessWidget {
             },
             icon: const Icon(
               Icons.arrow_back_sharp,
-              color: Color(0xFF4ECDC4),
+              
             )),
         Logo: 'assets/SignUp.png',
         Child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 8,
-              ),
               const CustomSigntextfield(
                 textfield_title: 'اسم المستخدم',
                 hint_text: 'ادخل اسمك الثنائي',
@@ -56,17 +53,14 @@ class SignUp extends StatelessWidget {
                   obscureText: getencryptedpassword.obscureText.value,
                 ),
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(right: 16, bottom: 8),
+                    padding: const EdgeInsets.only(right: 16, bottom: 8),
                     child: Text(
                       'أنشئ كلمة مرور تحتوي على حروف وأرقام ورموز ',
-                      style: TextStyle(
-                          color: Color(0xFF4ECDC4),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
                   ),
                 ],
@@ -89,22 +83,12 @@ class SignUp extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              MaterialButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                color: const Color(0xFF4ECDC4),
-                onPressed: () {
-                  Get.offAllNamed('home');
-                },
-                height: 60,
-                minWidth: 342,
-                child: const Text(
-                  'إنشاء حساب',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700),
-                ),
+              FilledButton(onPressed: (){ Get.offAllNamed('workermap');} ,
+              style: Theme.of(context).filledButtonTheme.style,
+              child:Text(
+                  'إنشاء حساب',style: Theme.of(context).textTheme.bodyMedium,) ),
+             const SizedBox(
+                height: 20,
               ),
             ],
           ),

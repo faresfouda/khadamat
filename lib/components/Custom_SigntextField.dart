@@ -5,15 +5,14 @@ class CustomSigntextfield extends StatelessWidget {
     super.key,
     required this.textfield_title,
     required this.hint_text,
-    required this.field_icon, required this.obscureText,
+    required this.field_icon,
+    required this.obscureText,
   });
   final String textfield_title;
   final String hint_text;
   final IconButton? field_icon;
   final bool obscureText;
-
   @override
-
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -21,11 +20,8 @@ class CustomSigntextfield extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(right: 16),
-              child: Text(
-                textfield_title,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-              ),
+              child: Text(textfield_title,
+                  style: Theme.of(context).textTheme.titleMedium),
             ),
           ],
         ),
@@ -42,10 +38,7 @@ class CustomSigntextfield extends StatelessWidget {
                 filled: true,
                 fillColor: Colors.white,
                 hintText: hint_text,
-                hintStyle: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFFC0C0C0)),
+                hintStyle: Theme.of(context).textTheme.labelSmall,
                 focusedBorder: OutlineInputBorder(
                     borderSide: const BorderSide(color: Color(0xFFDFDFDF)),
                     borderRadius: BorderRadius.circular(16)),

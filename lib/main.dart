@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/controllers/Get_Binding/My_Binding.dart';
-import 'package:khadamat/views/Home.dart';
+import 'package:khadamat/theme/apptheme.dart';
+import 'package:khadamat/views/workermap.dart';
 import 'package:khadamat/views/Intro_Screen.dart';
 import 'package:khadamat/views/SignIn.dart';
 import 'package:khadamat/views/SignUp.dart';
@@ -19,11 +20,7 @@ class MrFixApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       locale: const Locale('ar'),
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
-        scaffoldBackgroundColor: Colors.white,
-        textTheme: GoogleFonts.almaraiTextTheme(),
-      ),
+      theme: apptheme,
       initialBinding: MyBinding(),
       initialRoute: '/',
       getPages: [
@@ -37,8 +34,8 @@ class MrFixApp extends StatelessWidget {
           page: () => SignUp(),
         ),
         GetPage(
-          name: '/home',
-          page: () => const Home(),
+          name: '/workermap',
+          page: () => const Workermap(),
         )
       ],
     );

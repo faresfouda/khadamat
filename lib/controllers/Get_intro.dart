@@ -13,7 +13,8 @@ class GetIntro extends GetxController {
     ],
     'assets/introThree.png': [
       'خدمة آمنة',
-      'يحرص تطبيق مستر فِكس على توفير خدمات آمنة  من خلال عمالة موثوقة ومضمونة !'
+      '''يحرص تطبيق مستر فِكس على توفير خدمات آمنة 
+      من خلال عمالة موثوقة ومضمونة !'''
     ]
   };
   PageController pageController = PageController();
