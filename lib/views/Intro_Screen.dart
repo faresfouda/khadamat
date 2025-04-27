@@ -15,7 +15,7 @@ class IntroScreen extends StatelessWidget {
             onPressed: () {
               Get.offAllNamed('signin');
             },
-            child:Text(
+            child: Text(
               'تخطي',
               style: Theme.of(context).textTheme.labelMedium,
             ),
@@ -76,7 +76,7 @@ class IntroScreen extends StatelessWidget {
               onPressed: () {
                 getIntro.skip();
               },
-              style: Theme.of(context).filledButtonTheme.style,
+              // style: Theme.of(context).filledButtonTheme.style,
               child: Text(
                 'التالي',
                 style: Theme.of(context).textTheme.bodyMedium,
