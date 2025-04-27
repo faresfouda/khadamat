@@ -14,12 +14,12 @@ class SignUp extends StatelessWidget {
       child: SignView(
         screentitle: 'إنشاء حساب جديد ',
         iconchild: IconButton(
+            style: Theme.of(context).iconButtonTheme.style,
             onPressed: () {
               Get.offAllNamed('signin');
             },
             icon: const Icon(
               Icons.arrow_back_sharp,
-              
             )),
         Logo: 'assets/SignUp.png',
         Child: Center(
@@ -47,8 +47,12 @@ class SignUp extends StatelessWidget {
                       getencryptedpassword.secure();
                     },
                     icon: getencryptedpassword.obscureText.value
-                        ? const Icon(Icons.visibility_off)
-                        : const Icon(Icons.visibility),
+                        ? const Icon(
+                            Icons.visibility_off,
+                            color: Color(0xFFC0C0C0),
+                          )
+                        : const Icon(Icons.visibility,
+                            color: Color(0xFFC0C0C0)),
                   ),
                   obscureText: getencryptedpassword.obscureText.value,
                 ),
@@ -74,8 +78,10 @@ class SignUp extends StatelessWidget {
                       getencryptedpassword.secure();
                     },
                     icon: getencryptedpassword.obscureText.value
-                        ? const Icon(Icons.visibility_off)
-                        : const Icon(Icons.visibility),
+                        ? const Icon(Icons.visibility_off,
+                            color: Color(0xFFC0C0C0))
+                        : const Icon(Icons.visibility,
+                            color: Color(0xFFC0C0C0)),
                   ),
                   obscureText: getencryptedpassword.obscureText.value,
                 ),
@@ -83,11 +89,16 @@ class SignUp extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              FilledButton(onPressed: (){ Get.offAllNamed('workermap');} ,
-              style: Theme.of(context).filledButtonTheme.style,
-              child:Text(
-                  'إنشاء حساب',style: Theme.of(context).textTheme.bodyMedium,) ),
-             const SizedBox(
+              FilledButton(
+                  onPressed: () {
+                    Get.offAllNamed('workermap');
+                  },
+                  style: Theme.of(context).filledButtonTheme.style,
+                  child: Text(
+                    'إنشاء حساب',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  )),
+              const SizedBox(
                 height: 20,
               ),
             ],

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData apptheme = ThemeData(
-    appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
+  
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.white),
     scaffoldBackgroundColor: Colors.white,
     textTheme: GoogleFonts.almaraiTextTheme(
       const TextTheme(
@@ -20,6 +22,10 @@ ThemeData apptheme = ThemeData(
               fontWeight: FontWeight.w400),
           bodyMedium: TextStyle(
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
+          bodySmall: TextStyle(
+              color: Color(0xFF4ECDC4),
+              fontSize: 20,
+              fontWeight: FontWeight.w700),
           labelLarge: TextStyle(
               color: Color(0xFF4ECDC4),
               fontSize: 24,
@@ -52,6 +58,6 @@ ThemeData apptheme = ThemeData(
         ),
       ),
     ),
-    iconTheme: const IconThemeData(
-      color: Color(0xFF4ECDC4),
-    ));
+    iconButtonTheme: const IconButtonThemeData(
+        style:
+            ButtonStyle(iconColor: WidgetStatePropertyAll(Color(0xFF4ECDC4)))));

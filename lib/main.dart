@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/controllers/Get_Binding/My_Binding.dart';
 import 'package:khadamat/theme/apptheme.dart';
 import 'package:khadamat/views/workermap.dart';
