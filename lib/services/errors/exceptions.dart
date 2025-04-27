@@ -42,6 +42,6 @@ void handelDioExceptions(DioException e) {
           throw ServerException(errorModel:ErrorModel.fromJson(e.response!.data));
         case 504:
           throw ServerException(errorModel:ErrorModel.fromJson(e.response!.data));
-      };
+      } {}
   }
 }
