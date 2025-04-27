@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:khadamat/core/api/api_consumer.dart';
-import 'package:khadamat/core/api/end_point.dart';
+import 'package:khadamat/services/api/api_consumer.dart';
+import 'package:khadamat/services/api/end_point.dart';
 import '../errors/exceptions.dart';
 
 class DioConsumer extends ApiConsumer{
