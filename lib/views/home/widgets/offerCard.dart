@@ -19,7 +19,7 @@ class OfferCard extends StatelessWidget{
         width: 138,
         height: 185,
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               Text("${service}"),

@@ -63,7 +63,7 @@ class _SearchScreenState extends State<SearchScreen> {
         titleSpacing: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(right: 24.0,left:50),
+        padding: const EdgeInsets.only(right: 24.0,left:20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
