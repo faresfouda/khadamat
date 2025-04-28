@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:khadamat/component/backButton.dart';
-import 'package:khadamat/component/elevatedButton.dart';
+import 'package:khadamat/components/backButton.dart';
+import 'package:khadamat/components/elevatedButton.dart';
+
 
 class AboutService extends StatelessWidget {
   const AboutService({super.key});

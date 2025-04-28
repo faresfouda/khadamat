@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:khadamat/component/backButton.dart';
+import 'package:khadamat/components/backButton.dart';
 import 'package:khadamat/views/search/widgets/searchTags.dart';
 
 class SearchScreen extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:khadamat/component/backButton.dart';
+import 'package:khadamat/components/backButton.dart';
 import 'package:khadamat/views/service/widgets/categoryCard.dart';
 
 class ServiceScreen extends StatelessWidget {

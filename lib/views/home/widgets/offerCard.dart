@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:khadamat/component/elevatedButton.dart';
+import 'package:khadamat/components/elevatedButton.dart';
 
 class OfferCard extends StatelessWidget{
   final String service;
