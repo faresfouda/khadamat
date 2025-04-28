@@ -31,16 +31,17 @@ dependencies:
   flutter:
     sdk: flutter
   dio:
+  get:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.6
-  flutter_native_splash: ^2.4.6
-  get: ^4.7.2
-  google_fonts: ^6.2.1
-  smooth_page_indicator: ^1.2.1
-  google_maps_flutter: ^2.12.1
-  flutter_rating_bar: ^4.0.1
+  cupertino_icons:
+  flutter_native_splash:
+  google_fonts:
+  smooth_page_indicator:
+  google_maps_flutter:
+  flutter_rating_bar:
+
 
 dev_dependencies:
   flutter_test:

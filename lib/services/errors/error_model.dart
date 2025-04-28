@@ -1,4 +1,6 @@
-import 'package:khadamat/core/api/end_point.dart';
+
+
+import 'package:khadamat/services/api/end_point.dart';
 
 class ErrorModel {
   final String message;
