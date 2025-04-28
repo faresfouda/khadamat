@@ -9,6 +9,7 @@ class Back_Button extends StatelessWidget {
     return IconButton(
       icon: SvgPicture.asset(
         'assets/icons/chevron-right.svg',
+        color: Colors.white,
       ),
       onPressed: () {
         Navigator.pop(context);

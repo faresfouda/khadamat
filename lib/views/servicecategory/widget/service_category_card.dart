@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:khadamat/views/aboutService/aboutService.dart';
 import 'package:khadamat/views/subcategory/subcategory.dart';
 
 class ServiceCategoryCard extends StatelessWidget{

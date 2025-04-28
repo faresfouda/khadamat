@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:khadamat/components/Custom_SigntextField.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
-import 'package:khadamat/views/home/homeScreen.dart';
+import 'package:khadamat/views/home/mainscreen.dart';
 
 class Signin extends StatelessWidget {
   Signin({super.key});
@@ -57,7 +57,7 @@ class Signin extends StatelessWidget {
           ),
           FilledButton(
               onPressed: () {
-                Get.to(HomeScreen());
+                Get.to(MainScreen());
               },
               child: Text(
                 'تسجيل الدخول',
