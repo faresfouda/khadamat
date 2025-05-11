@@ -31,7 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(),
+        leading: Back_Button(color: Color(0xFF5C5C5C),),
         toolbarHeight: 100,
         title: Padding(
           padding: const EdgeInsets.only(left: 24),

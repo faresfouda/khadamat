@@ -29,7 +29,7 @@ class IntroScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 450,
+              height: 470,
               child: PageView.builder(
                 controller: getIntro.pageController,
                 itemCount: getIntro.IntroData.length,
