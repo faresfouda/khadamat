@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:khadamat/components/Custom_SigntextField.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
+import 'package:khadamat/views/home/mainscreen.dart';
 
 class Signin extends StatelessWidget {
   Signin({super.key});
@@ -56,7 +57,7 @@ class Signin extends StatelessWidget {
           ),
           FilledButton(
               onPressed: () {
-                Get.offAllNamed('workermap');
+                Get.off(MainScreen());
               },
               child: Text(
                 'تسجيل الدخول',

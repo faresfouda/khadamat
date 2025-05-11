@@ -1,63 +1,68 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:khadamat/views/home/widgets/customBottomNavBar.dart';
+import 'package:khadamat/theme/apptheme.dart';
 import 'package:khadamat/views/home/widgets/offerCard.dart';
 import 'package:khadamat/views/home/widgets/servicesCard.dart';
 import 'package:khadamat/views/search/searchScreen.dart';
 
-class HomeScreen extends StatefulWidget {
-
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-  @override
   Widget build(BuildContext context) {
-    final String username = 'الطايفي';
+    const String username = 'الطايفي';
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100,
         title: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('مرحباً ${username}',style: TextStyle(color:Color(0xFF37928B),fontWeight: FontWeight.bold,fontSize: 20)),
-              SizedBox(height: 5,),
-              const Text(
+              Text(
+                'مرحباً $username',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
                 'كيف حالك اليوم!',
-                  style: TextStyle(color:Color(0xFF969696),fontSize: 14,),
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
             ],
           ),
         ),
-        actions: [Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: IconButton(onPressed: (){}, icon: Icon(Icons.notifications_none_rounded,color: Color(0xFF37928B),size: 30,)),
-        )],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.notifications_none_rounded,
+                  color: AppColors.primary,
+                  size: 30,
+                )),
+          )
+        ],
         clipBehavior: Clip.none,
-
       ),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.only(right: 30.0,left: 30),
+          padding: const EdgeInsets.only(right: 30.0, left: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(() => SearchScreen());
+                  Get.to(() => const SearchScreen());
                 },
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
                   decoration: BoxDecoration(
-                    color: Color(0xFFF5F5F5),
+                    color: const Color(0xFFF5F5F5),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
@@ -65,8 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       SvgPicture.asset(
                         'assets/icons/search-normal.svg',
                       ),
-                      SizedBox(width: 8),
-                      Text(
+                      const SizedBox(width: 8),
+                      const Text(
                         'بحث',
                         style: TextStyle(
                           color: Color(0xFFA1A1A1),
@@ -77,20 +82,33 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-
-              SizedBox(height: 20,),
-              Text("باقات مستر فِكس",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
-              SizedBox(height: 16,),
-              Container(
+              const SizedBox(
+                height: 20,
+              ),
+              const Text("باقات مستر فِكس",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const SizedBox(
+                height: 16,
+              ),
+              SizedBox(
                 width: double.infinity,
-                child: Image.asset('assets/screen1.png',
+                child: Image.asset(
+                  'assets/screen1.png',
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(height: 24,),
-              Text("الخدمات",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Color(0xFF133848))),
-              SizedBox(height: 16,),
-              Container(
+              const SizedBox(
+                height: 24,
+              ),
+              const Text("الخدمات",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF133848))),
+              const SizedBox(
+                height: 16,
+              ),
+              SizedBox(
                 height: 95,
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
@@ -101,7 +119,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     return Padding(
                       padding: const EdgeInsets.only(left: 16),
                       child: ServicesCard(
-                        image: Image.asset(services[index]['image']!,
+                        image: Image.asset(
+                          services[index]['image']!,
                           fit: BoxFit.cover,
                         ),
                         title: services[index]['service']!,
@@ -110,35 +129,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              SizedBox(height: 24,),
-              Text("قائمة بالأسعار الأساسية",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Color(0xFF031123))),
-              SizedBox(height: 16,),
-              Container(
-                height: 235,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: services.length,
-                  itemBuilder: (context, index) {
-                    return OfferCard(service: offers[index]['service']!, price: offers[index]['price']!,);
-                  }
-                ),
-
+              const SizedBox(
+                height: 24,
               ),
-
+              const Text("قائمة بالأسعار الأساسية",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF031123))),
+              const SizedBox(
+                height: 16,
+              ),
+              SizedBox(
+                height: 210,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: services.length,
+                    itemBuilder: (context, index) {
+                      return OfferCard(
+                        service: offers[index]['service']!,
+                        price: offers[index]['price']!,
+                      );
+                    }),
+              ),
             ],
           ),
-        ),
-      ),
-      bottomNavigationBar: Container(
-        height: 81,
-        child: CustomBottomNavBar(
-          selectedIndex: _selectedIndex,
-          onItemTapped: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
         ),
       ),
     );

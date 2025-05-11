@@ -35,7 +35,7 @@ class MrFixApp extends StatelessWidget {
         GetPage(
           name: '/workermap',
           page: () => const Workermap(),
-        )
+        ),
       ],
     );
   }

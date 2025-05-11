@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:khadamat/views/chat/chat.dart';
+import 'package:khadamat/views/home/homeScreen.dart';
+import 'package:khadamat/views/home/widgets/customBottomNavBar.dart';
+import 'package:khadamat/views/profile/profileScreen.dart';
+
+
+class MainScreen extends StatefulWidget {
+
+  const MainScreen({super.key});
+  @override
+  State<MainScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<MainScreen> {
+  int _selectedIndex = 0;
+  final List <Widget> _screens = [
+    const HomeScreen(),
+    const Center(child: Text('طلباتي')),
+    const ChatScreen(),
+    const ProfileScreen(),
+  ];
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      body: _screens[_selectedIndex],
+      bottomNavigationBar: Container(
+        height: 81,
+        child: CustomBottomNavBar(
+          selectedIndex: _selectedIndex,
+          onItemTapped: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+        ),
+      ),
+    );
+  }
+}
