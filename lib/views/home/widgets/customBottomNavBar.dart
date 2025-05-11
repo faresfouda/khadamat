@@ -13,43 +13,58 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'assets/icons/orders.svg',
-            color: selectedIndex == 0 ? Color(0xFF37928B) : Color(0xFF666666),
-          ),
-          label: 'الرئيسية',
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(
+          color: Color(0xFFE8E8E8),
+          width: 1,
         ),
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'assets/icons/bag-tick-2.svg',
-            color: selectedIndex == 1 ? Color(0xFF37928B) : Color(0xFF666666),
-          ),
-          label: 'طلباتي',
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
         ),
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'assets/icons/messages-2.svg',
-            color: selectedIndex == 2 ? Color(0xFF37928B) : Color(0xFF666666),
+      ),
+      child: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/home.svg',
+              color: selectedIndex == 0 ? Color(0xFF37928B) : Color(0xFF666666),
+            ),
+            label: 'الرئيسية',
           ),
-          label: 'الدردشة',
-        ),
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'assets/icons/profile.svg',
-            color: selectedIndex == 3 ? Color(0xFF37928B) : Color(0xFF666666),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/bag-tick-2.svg',
+              color: selectedIndex == 1 ? Color(0xFF37928B) : Color(0xFF666666),
+            ),
+            label: 'طلباتي',
           ),
-          label: 'الحساب',
-        ),
-      ],
-      currentIndex: selectedIndex,
-      onTap: onItemTapped,
-      selectedItemColor: Color(0xFF37928B),
-      unselectedItemColor: Color(0xFF666666),
-      showUnselectedLabels: true,
-      type: BottomNavigationBarType.fixed,
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/messages-2.svg',
+              color: selectedIndex == 2 ? Color(0xFF37928B) : Color(0xFF666666),
+            ),
+            label: 'الدردشة',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/profile.svg',
+              color: selectedIndex == 3 ? Color(0xFF37928B) : Color(0xFF666666),
+            ),
+            label: 'الحساب',
+          ),
+        ],
+        currentIndex: selectedIndex,
+        onTap: onItemTapped,
+        selectedItemColor: Color(0xFF37928B),
+        unselectedItemColor: Color(0xFF666666),
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
     );
   }
 }

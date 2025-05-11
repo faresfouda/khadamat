@@ -27,7 +27,7 @@ class _ChatScreenState extends State<ChatScreen> {
         toolbarHeight: 100,
         centerTitle: true,
         backgroundColor: Color(0xFF37928B),
-        leading: Back_Button(),
+        leading: Back_Button(color: Colors.white,),
       ),
       body: Column(
         children: [

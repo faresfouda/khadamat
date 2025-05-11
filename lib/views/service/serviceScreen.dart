@@ -10,7 +10,7 @@ class ServiceScreen extends StatelessWidget {
     final String service = 'أجهزة كهربائية';
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(),
+        leading: Back_Button(color: Color(0xFF5C5C5C),),
         title: Text(
           '${service}',
           style: TextStyle(
@@ -19,7 +19,6 @@ class ServiceScreen extends StatelessWidget {
             color: Color(0xFF37928B),
           ),
         ),
-        toolbarHeight: 100,
         centerTitle: true,
       ),
       body: Column(

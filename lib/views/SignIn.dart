@@ -57,7 +57,7 @@ class Signin extends StatelessWidget {
           ),
           FilledButton(
               onPressed: () {
-                Get.to(MainScreen());
+                Get.off(MainScreen());
               },
               child: Text(
                 'تسجيل الدخول',

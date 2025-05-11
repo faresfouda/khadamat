@@ -39,6 +39,7 @@ dependencies:
   smooth_page_indicator:
   google_maps_flutter:
   flutter_rating_bar:
+  share_plus: ^11.0.0
 
 dev_dependencies:
   flutter_test:
