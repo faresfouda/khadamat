@@ -7,12 +7,12 @@ class ServiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String service = 'أجهزة كهربائية';
+    const String service = 'أجهزة كهربائية';
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(),
-        title: Text(
-          '${service}',
+        leading: const Back_Button(),
+        title: const Text(
+          service,
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -28,7 +28,7 @@ class ServiceScreen extends StatelessWidget {
           Expanded(
             child: GridView.builder(
                 itemCount: categories.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,

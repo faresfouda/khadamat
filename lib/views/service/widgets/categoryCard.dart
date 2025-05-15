@@ -9,7 +9,7 @@ class CategoryCard extends StatelessWidget{
   const CategoryCard({super.key, required this.index});
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 100,
       height: 117,
       child: Column(
@@ -18,30 +18,30 @@ class CategoryCard extends StatelessWidget{
             child: Container(
               width: 100,
               height: 90,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: const Color(0xFFE8E8E8),
+                  width: 1,
+                ),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: SvgPicture.asset(
                   'assets/icons/${categories[index]['image']}',
                 ),
               ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: Color(0xFFE8E8E8),
-                  width: 1,
-                ),
-              ),
             ),
             onTap: (){
-              Get.to(AboutService());
+              Get.to(const AboutService());
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           Text(
             categories[index]['category'],
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,
               color: Color(0xFF666666),

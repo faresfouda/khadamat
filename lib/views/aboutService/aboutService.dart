@@ -7,12 +7,12 @@ class AboutService extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String service = 'ثلاجات';
+    const String service = 'ثلاجات';
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(),
-        title: Text(
-          '${service}',
+        leading: const Back_Button(),
+        title: const Text(
+          service,
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -30,12 +30,12 @@ class AboutService extends StatelessWidget {
             height: 313,
             fit: BoxFit.cover,
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 24.0, left: 24),
-            child: Text('${data}',
+          const Padding(
+            padding: EdgeInsets.only(right: 24.0, left: 24),
+            child: Text(data,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -45,9 +45,9 @@ class AboutService extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 30.0, right: 24, left: 24),
-        child: Container(
+      floatingActionButton: const Padding(
+        padding: EdgeInsets.only(bottom: 30.0, right: 24, left: 24),
+        child: SizedBox(
           width: double.infinity,
           height: 56,
           child: CustomElevatedButton(
@@ -62,5 +62,5 @@ class AboutService extends StatelessWidget {
   }
 }
 
-
-final data = ' تشمل الخدمة فحص مكونات الثلاجة مثل المحرك، الضاغط، ودوائر التبريد، بالإضافة إلى إصلاح الأعطال المتعلقة بتسريب الغاز، تراكم الثلج، أو عدم التبريد بالشكل المطلوب. تهدف الصيانة الدورية إلى تحسين أداء الثلاجة وتجنب الأعطال المفاجئة التي قد تؤدي إلى تلف المواد الغذائية وارتفاع استهلاك الطاقة.';
+const data =
+    ' تشمل الخدمة فحص مكونات الثلاجة مثل المحرك، الضاغط، ودوائر التبريد، بالإضافة إلى إصلاح الأعطال المتعلقة بتسريب الغاز، تراكم الثلج، أو عدم التبريد بالشكل المطلوب. تهدف الصيانة الدورية إلى تحسين أداء الثلاجة وتجنب الأعطال المفاجئة التي قد تؤدي إلى تلف المواد الغذائية وارتفاع استهلاك الطاقة.';

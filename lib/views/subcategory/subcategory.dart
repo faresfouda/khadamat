@@ -7,12 +7,12 @@ class SubcategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String service = 'كهربائي';
+    const String service = 'كهربائي';
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(),
-        title: Text(
-          '${service}',
+        leading: const Back_Button(),
+        title: const Text(
+          service,
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,

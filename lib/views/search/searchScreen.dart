@@ -31,14 +31,14 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(),
+        leading: const Back_Button(),
         toolbarHeight: 100,
         title: Padding(
           padding: const EdgeInsets.only(left: 24),
           child: TextField(
             focusNode: _focusNode,
             decoration: InputDecoration(
-              fillColor: Color(0xFFF5F5F5),
+              fillColor: const Color(0xFFF5F5F5),
               filled: true,
               hintText: 'ما الذي تبحث عنه؟',
               prefixIcon: IconButton(
@@ -49,7 +49,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   Navigator.pop(context);
                 },
               ),
-              hintStyle: TextStyle(color: Color(0xFFA1A1A1),fontSize: 16),
+              hintStyle: const TextStyle(color: Color(0xFFA1A1A1),fontSize: 16),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none,
@@ -62,13 +62,13 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
         titleSpacing: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(right: 24.0,left:50),
+      body: const Padding(
+        padding: EdgeInsets.only(right: 24.0,left:50),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 16.0,bottom: 16),
+              padding: EdgeInsets.only(top: 16.0,bottom: 16),
               child: Text('ابحث باسم الخدمة',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Color(0xFF37928B)),),
             ),
             SearchTags(),
