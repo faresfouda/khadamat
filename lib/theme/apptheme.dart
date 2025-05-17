@@ -64,3 +64,9 @@ ThemeData apptheme = ThemeData(
         style: ButtonStyle(
             iconSize: WidgetStatePropertyAll(30),
             iconColor: WidgetStatePropertyAll(Color(0xFF37928B)))));
+class AppColors {
+  static const primary = Color(0xFF37928B);
+  static const grey = Color(0xFF969696);
+  static const darkGrey = Color(0xFFA1A1A1);
+  static const background = Color(0xFFF5F5F5);
+}

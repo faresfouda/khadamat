@@ -3,7 +3,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:khadamat/component/backButton.dart';
+import 'package:khadamat/components/backButton.dart';
 
 class Editorder extends StatelessWidget {
   Editorder({super.key});
@@ -18,7 +18,7 @@ class Editorder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Back_Button(),
+        leading: const Back_Button(color: Colors.white,),
         title: const Text(
           'تعديل الطلب',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),

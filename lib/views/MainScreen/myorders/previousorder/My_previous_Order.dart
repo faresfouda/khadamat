@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:khadamat/component/backButton.dart';
+import 'package:khadamat/components/backButton.dart';
 
 class MyPreviousOrder extends StatelessWidget {
   MyPreviousOrder({super.key});
@@ -16,7 +16,7 @@ class MyPreviousOrder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('طلباتي السابقة'), leading: const Back_Button()),
+          title: const Text('طلباتي السابقة'), leading: const Back_Button(color: Colors.white,)),
       body: Padding(
         padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
         child: Column(

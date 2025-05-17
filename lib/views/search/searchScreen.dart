@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:khadamat/component/backButton.dart';
+import 'package:khadamat/components/backButton.dart';
 import 'package:khadamat/views/search/widgets/searchTags.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -31,7 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Back_Button(),
+        leading: const Back_Button(color: Colors.white,),
         toolbarHeight: 100,
         title: Padding(
           padding: const EdgeInsets.only(left: 24),

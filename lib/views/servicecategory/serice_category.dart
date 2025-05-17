@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:khadamat/component/backButton.dart';
+import 'package:khadamat/components/backButton.dart';
 import 'package:khadamat/views/servicecategory/widget/service_category_card.dart';
 
 class ServiceCategoryScreen extends StatelessWidget {
@@ -10,7 +10,7 @@ class ServiceCategoryScreen extends StatelessWidget {
     const String service = 'التشطيبات';
     return Scaffold(
       appBar: AppBar(
-        leading: const Back_Button(),
+        leading: const Back_Button(color: Colors.white,),
         title: const Text(
           service,
           style: TextStyle(
