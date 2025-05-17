@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:khadamat/controllers/Get_Binding/My_Binding.dart';
 import 'package:khadamat/theme/apptheme.dart';
+import 'package:khadamat/views/search/searchScreen.dart';
 import 'package:khadamat/views/workermap.dart';
 import 'package:khadamat/views/Intro_Screen.dart';
 import 'package:khadamat/views/SignIn.dart';
@@ -35,6 +36,10 @@ class MrFixApp extends StatelessWidget {
         GetPage(
           name: '/workermap',
           page: () => const Workermap(),
+        ),
+        GetPage(
+          name: '/search',
+          page: () => const SearchScreen(),
         ),
       ],
     );

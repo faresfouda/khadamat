@@ -10,12 +10,17 @@ ThemeData apptheme = ThemeData(
     textTheme: GoogleFonts.almaraiTextTheme(
       const TextTheme(
           headlineLarge: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: AppColors.primary),
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: AppColors.primary),
+          headlineSmall: TextStyle(
+            color: Color(0xFFA1A1A1),
+            fontSize: 16,
+          ),
           headlineMedium: TextStyle(
-              fontSize: 14,
-              color: AppColors.grey,),
+            fontSize: 14,
+            color: AppColors.grey,
+          ),
           titleLarge: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.w700,
@@ -28,6 +33,8 @@ ThemeData apptheme = ThemeData(
               color: Color(0xFF4ECDC4),
               fontSize: 12,
               fontWeight: FontWeight.w400),
+          bodyLarge: TextStyle(
+              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
           bodyMedium: TextStyle(
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
           bodySmall: TextStyle(

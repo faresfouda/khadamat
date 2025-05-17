@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:khadamat/views/chat/chat.dart';
-import 'package:khadamat/views/home/homeScreen.dart';
-import 'package:khadamat/views/home/widgets/customBottomNavBar.dart';
+import 'package:khadamat/views/home/homescreen.dart';
+import 'package:khadamat/views/home/widgets/custom_bottom_navbar.dart';
 import 'package:khadamat/views/profile/profileScreen.dart';
 
 
@@ -25,7 +25,7 @@ class _HomeScreenState extends State<MainScreen> {
 
     return Scaffold(
       body: _screens[_selectedIndex],
-      bottomNavigationBar: Container(
+      bottomNavigationBar: SizedBox(
         height: 81,
         child: CustomBottomNavBar(
           selectedIndex: _selectedIndex,
