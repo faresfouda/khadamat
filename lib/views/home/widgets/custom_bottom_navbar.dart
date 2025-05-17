@@ -6,10 +6,10 @@ class CustomBottomNavBar extends StatelessWidget {
   final Function(int) onItemTapped;
 
   const CustomBottomNavBar({
-    Key? key,
+    super.key,
     required this.selectedIndex,
     required this.onItemTapped,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CustomBottomNavBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
-          color: Color(0xFFE8E8E8),
+          color: const Color(0xFFE8E8E8),
           width: 1,
         ),
         borderRadius: const BorderRadius.only(
@@ -30,36 +30,36 @@ class CustomBottomNavBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/icons/home.svg',
-              color: selectedIndex == 0 ? Color(0xFF37928B) : Color(0xFF666666),
+              color: selectedIndex == 0 ? const Color(0xFF37928B) : const Color(0xFF666666),
             ),
             label: 'الرئيسية',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/icons/bag-tick-2.svg',
-              color: selectedIndex == 1 ? Color(0xFF37928B) : Color(0xFF666666),
+              color: selectedIndex == 1 ? const Color(0xFF37928B) : const Color(0xFF666666),
             ),
             label: 'طلباتي',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/icons/messages-2.svg',
-              color: selectedIndex == 2 ? Color(0xFF37928B) : Color(0xFF666666),
+              color: selectedIndex == 2 ? const Color(0xFF37928B) : const Color(0xFF666666),
             ),
             label: 'الدردشة',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/icons/profile.svg',
-              color: selectedIndex == 3 ? Color(0xFF37928B) : Color(0xFF666666),
+              color: selectedIndex == 3 ? const Color(0xFF37928B) : const Color(0xFF666666),
             ),
             label: 'الحساب',
           ),
         ],
         currentIndex: selectedIndex,
         onTap: onItemTapped,
-        selectedItemColor: Color(0xFF37928B),
-        unselectedItemColor: Color(0xFF666666),
+        selectedItemColor: const Color(0xFF37928B),
+        unselectedItemColor: const Color(0xFF666666),
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.transparent,
