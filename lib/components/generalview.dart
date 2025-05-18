@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:khadamat/component/GeneralViewbackground.dart';
+import 'package:khadamat/components/GeneralViewbackground.dart';
 
 class GeneralView extends StatelessWidget {
   const GeneralView({

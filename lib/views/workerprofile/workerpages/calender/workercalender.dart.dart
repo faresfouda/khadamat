@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:khadamat/component/Custom_textField.dart';
+import 'package:khadamat/components/Custom_textField.dart';
 import 'package:khadamat/controllers/DateController.dart';
 import 'package:khadamat/controllers/RadioController.dart';
 import 'package:khadamat/views/workerprofile/workerpages/calender/WorkerCalenderComponents.dart/AlertScreen.dart';

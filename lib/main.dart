@@ -7,7 +7,6 @@ import 'package:khadamat/views/introscreen/Intro_Screen.dart';
 import 'package:khadamat/views/signin/SignIn.dart';
 import 'package:khadamat/views/signup/SignUp.dart';
 import 'package:khadamat/views/aboutService/aboutService.dart';
-import 'package:khadamat/views/MainScreen/MainScreen.dart';
 import 'package:khadamat/views/search/searchScreen.dart';
 import 'package:khadamat/views/service/serviceScreen.dart';
 import 'package:khadamat/views/servicecategory/serice_category.dart';
@@ -51,7 +50,7 @@ class MrFixApp extends StatelessWidget {
           name: '/workermap',
           page: () => const Workermap(),
         ),
-        GetPage(name: '/home', page: () => const MainScreen()),
+        // GetPage(name: '/home', page: () => const MainScreen()),
         GetPage(name: '/aboutservice', page: () => const AboutService()),
         GetPage(name: '/search', page: () => const SearchScreen()),
         GetPage(name: '/servicescreen', page: () => const ServiceScreen()),

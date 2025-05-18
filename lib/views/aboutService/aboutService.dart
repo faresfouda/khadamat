@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:khadamat/component/elevatedButton.dart';
+import 'package:khadamat/components/worker_elevated_button.dart';
 import 'package:khadamat/components/backButton.dart';
 
 class AboutService extends StatelessWidget {

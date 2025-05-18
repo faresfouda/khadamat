@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:khadamat/component/SearchContainers.dart';
-import 'package:khadamat/component/workerslistview.dart';
+import 'package:khadamat/components/SearchContainers.dart';
+import 'package:khadamat/components/map_workerslistview.dart';
 import 'package:khadamat/views/signup/SignUp.dart';
 import 'package:khadamat/views/workerssearch.dart';
 

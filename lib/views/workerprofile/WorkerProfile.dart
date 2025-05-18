@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:khadamat/component/generalview.dart';
+import 'package:khadamat/components/generalview.dart';
 import 'package:khadamat/views/workerprofile/widget/contactcontainer.dart';
 import 'package:khadamat/views/workerprofile/widget/profileimage.dart';
 import 'package:khadamat/views/workerprofile/widget/workerinfo.dart';
