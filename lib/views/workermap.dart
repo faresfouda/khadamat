@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:khadamat/components/searchcontainers.dart';
+import 'package:khadamat/components/backButton.dart';
 import 'package:khadamat/components/workerslistview.dart';
-import 'package:khadamat/views/SignUp.dart';
+import 'package:khadamat/theme/apptheme.dart';
+import 'package:khadamat/views/home/widgets/search_button.dart';
 import 'package:khadamat/views/workerssearch.dart';
 
 class Workermap extends StatelessWidget {
@@ -14,21 +15,12 @@ class Workermap extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text(
+          title: const Text(
             'تجهيز الطلب ',
-            style: Theme.of(context).textTheme.bodySmall,
           ),
-          leading: Padding(
-            padding: const EdgeInsets.only(right: 12),
-            child: IconButton(
-                style: Theme.of(context).iconButtonTheme.style,
-                onPressed: () {
-                  Get.off(SignUp());
-                },
-                icon: const Icon(
-                  Icons.arrow_back_sharp,
-                )),
-          ),
+          leading: const Padding(
+              padding: EdgeInsets.only(right: 12),
+              child: Back_Button(color: AppColors.primary)),
         ),
         body: Stack(
           alignment: Alignment.center,
@@ -39,11 +31,14 @@ class Workermap extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                GestureDetector(
-                    onTap: () {
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: SearchButton(
+                    ontap: () {
                       Get.to(const Workerssearch());
                     },
-                    child: const SearchContainer()),
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),

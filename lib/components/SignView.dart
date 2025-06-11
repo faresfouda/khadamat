@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/SignView_background.dart';
+import 'package:khadamat/theme/apptheme.dart';
 
 class SignView extends StatelessWidget {
   const SignView({
@@ -16,7 +19,7 @@ class SignView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE6F0FC),
+      backgroundColor: AppColors.whitecolor,
       body: Stack(
         alignment: AlignmentDirectional.topCenter,
         children: [
@@ -26,7 +29,7 @@ class SignView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 70),
                 //logo image
-                child: Image(image: AssetImage(Logo)),
+                child: SvgPicture.asset(Logo),
               ),
               const SizedBox(
                 height: 16,
@@ -34,13 +37,18 @@ class SignView extends StatelessWidget {
               Container(
                 child: Center(
                   child: Text(
-                    textAlign: TextAlign.center,
-                    screentitle,
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
+                      textAlign: TextAlign.center,
+                      screentitle,
+                      style: GoogleFonts.almarai(
+                          color: AppColors.primary,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700)),
                 ),
               ),
-              Expanded(child: ListView(children: [Child])),
+              Expanded(
+                child: ListView(
+                    padding: const EdgeInsets.only(top: 20), children: [Child]),
+              ),
             ],
           ),
           Padding(

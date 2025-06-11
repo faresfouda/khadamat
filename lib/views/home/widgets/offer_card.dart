@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/elevatedButton.dart';
-
 
 class OfferCard extends StatelessWidget {
   final String service;
@@ -31,28 +31,28 @@ class OfferCard extends StatelessWidget {
               Text(
                 service,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: GoogleFonts.almarai(
                   fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xFF666666),
+                  fontWeight: FontWeight.w400,
+                  color: const Color(0xFF666666),
                 ),
               ),
               const SizedBox(height: 12),
               Text(
                 price,
-                style: const TextStyle(
+                style: GoogleFonts.almarai(
                   fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF0B0B0B),
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xFF0B0B0B),
                 ),
               ),
               const SizedBox(height: 4),
-              const Text(
+              Text(
                 "EGP",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Color(0xFF666666),
-                ),
+                style: GoogleFonts.almarai(
+                    fontSize: 16,
+                    color: const Color(0xFF666666),
+                    fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 12),
               SizedBox(
@@ -61,9 +61,7 @@ class OfferCard extends StatelessWidget {
                   text: 'اطلب',
                   fontsize: 14,
                   radius: 10,
-                  onpressed: () {
-
-                  },
+                  onpressed: () {},
                 ),
               ),
             ],
@@ -73,8 +71,6 @@ class OfferCard extends StatelessWidget {
     );
   }
 }
-
-
 
 final offers = [
   {'service': 'تركيب مصباح', 'price': '50'},

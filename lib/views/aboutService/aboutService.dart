@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/backButton.dart';
 import 'package:khadamat/components/elevatedButton.dart';
-
+import 'package:khadamat/views/workermap.dart';
 
 class AboutService extends StatelessWidget {
   const AboutService({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final String service = 'ثلاجات';
+    const String service = 'ثلاجات';
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(color: Color(0xFF37928B),),
-        title: Text(
-          '${service}',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF37928B),
-          ),
+        leading: const Back_Button(
+          color: Color(0xFF37928B),
         ),
-        toolbarHeight: 100,
-        centerTitle: true,
+        title: const Text(
+          service,
+        ),
       ),
       body: Column(
         children: [
@@ -31,16 +28,16 @@ class AboutService extends StatelessWidget {
             height: 313,
             fit: BoxFit.cover,
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Padding(
             padding: const EdgeInsets.only(right: 24.0, left: 24),
-            child: Text('${data}',
-                style: TextStyle(
+            child: Text(data,
+                style: GoogleFonts.tajawal(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: Color(0xFF666666),
+                  color: const Color(0xFF666666),
                 ),
                 textAlign: TextAlign.right),
           ),
@@ -48,7 +45,7 @@ class AboutService extends StatelessWidget {
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 30.0, right: 24, left: 24),
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           height: 56,
           child: CustomElevatedButton(
@@ -56,7 +53,7 @@ class AboutService extends StatelessWidget {
             fontsize: 20,
             radius: 16,
             onpressed: () {
-              // Handle button press
+              Get.to(const Workermap());
             },
           ),
         ),
@@ -66,5 +63,5 @@ class AboutService extends StatelessWidget {
   }
 }
 
-
-final data = ' تشمل الخدمة فحص مكونات الثلاجة مثل المحرك، الضاغط، ودوائر التبريد، بالإضافة إلى إصلاح الأعطال المتعلقة بتسريب الغاز، تراكم الثلج، أو عدم التبريد بالشكل المطلوب. تهدف الصيانة الدورية إلى تحسين أداء الثلاجة وتجنب الأعطال المفاجئة التي قد تؤدي إلى تلف المواد الغذائية وارتفاع استهلاك الطاقة.';
+const data =
+    ' تشمل الخدمة فحص مكونات الثلاجة مثل المحرك، الضاغط، ودوائر التبريد، بالإضافة إلى إصلاح الأعطال المتعلقة بتسريب الغاز، تراكم الثلج، أو عدم التبريد بالشكل المطلوب. تهدف الصيانة الدورية إلى تحسين أداء الثلاجة وتجنب الأعطال المفاجئة التي قد تؤدي إلى تلف المواد الغذائية وارتفاع استهلاك الطاقة.';

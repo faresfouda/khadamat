@@ -7,17 +7,14 @@ class SubcategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String service = 'كهربائي';
+    const String service = 'كهربائي';
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(color: Color(0xFF5C5C5C),),
-        title: Text(
-          '${service}',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF37928B),
-          ),
+        leading: const Back_Button(
+          color: Color(0xFF5C5C5C),
+        ),
+        title: const Text(
+          service,
         ),
         toolbarHeight: 100,
         centerTitle: true,
@@ -29,7 +26,8 @@ class SubcategoryScreen extends StatelessWidget {
                 itemCount: categories.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.only(bottom: 24, left: 16, right: 16),
+                    padding:
+                        const EdgeInsets.only(bottom: 24, left: 16, right: 16),
                     child: SubcategoryCard(
                       index: index,
                     ),

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomListTile extends StatelessWidget {
   final String title;
   final Function()? ontap;
-  const CustomListTile({super.key,required this.title, this.ontap });
+  const CustomListTile({super.key, required this.title, this.ontap});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class CustomListTile extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
+              style: GoogleFonts.tajawal(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: Colors.black,

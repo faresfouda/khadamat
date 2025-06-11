@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/elevatedButton.dart';
 
 void CustomTextAlertDialogue(BuildContext context,final int? fillcolor,final int? bordercolor,
@@ -25,8 +26,8 @@ void CustomTextAlertDialogue(BuildContext context,final int? fillcolor,final int
           ),
           title:  Text(
             title,
-            style: TextStyle(
-              fontSize: 14,
+            style: GoogleFonts.tajawal(
+              fontSize: 16,
               fontWeight: FontWeight.w500,
               color: Colors.black,
             ),
@@ -37,21 +38,21 @@ void CustomTextAlertDialogue(BuildContext context,final int? fillcolor,final int
                 if (fillcolor == 0xFFE83636)
                   Column(
                     children: [
-                      Container(
+                      SizedBox(
                         width: 216,
                         child: Text(
                           'إذا قمت بحذف الحساب سوف يتم حذف جميع بيانتك!',
-                          style: TextStyle(
+                          style: GoogleFonts.tajawal(
                             fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF969696),
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xFF969696),
                           ),
                         ),
                       ),
                       const SizedBox(height: 22),
                     ],
                   ),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: CustomElevatedButton(
                     text: buttontext,
@@ -63,14 +64,14 @@ void CustomTextAlertDialogue(BuildContext context,final int? fillcolor,final int
                   ),
                 ),
                 const SizedBox(height: 8),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: CustomElevatedButton(
                     text: 'إلغاء',
                     fontsize: 14,
                     radius: 10,
                     fillcolor: 0xFFFFFFFF,
-                    textcolor: Color(0xFF37928B),
+                    textcolor: const Color(0xFF37928B),
                     onpressed: () {
                       Navigator.pop(context);
                     },

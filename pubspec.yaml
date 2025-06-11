@@ -40,6 +40,9 @@ dependencies:
   google_maps_flutter:
   flutter_rating_bar:
   share_plus: ^11.0.0
+  dotted_border: ^3.0.1
+  table_calendar: 
+  flutter_localization: ^0.3.2
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +64,13 @@ flutter:
   assets:
     - assets/
     - assets/icons/
+    - assets/intro/
+    - assets/sign/
+    - assets/currentorder/
+    - assets/previouswork/
+    - assets/worker/
+    - assets/Alert/
+    - assets/user/
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

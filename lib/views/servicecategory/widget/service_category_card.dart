@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/views/subcategory/subcategory.dart';
 
-class ServiceCategoryCard extends StatelessWidget{
+class ServiceCategoryCard extends StatelessWidget {
   final int index;
 
   const ServiceCategoryCard({super.key, required this.index});
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 179,
       child: Column(
         children: [
@@ -16,38 +17,37 @@ class ServiceCategoryCard extends StatelessWidget{
             child: Container(
               height: 140,
               width: 190,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: const Color(0xFFE8E8E8),
+                  width: 1,
+                ),
+              ),
               child: Image.asset(
                 'assets/${categories[index]['image']}',
                 fit: BoxFit.fill,
               ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: Color(0xFFE8E8E8),
-                  width: 1,
-                ),
-              ),
             ),
-            onTap: (){
-              Get.to(SubcategoryScreen());
+            onTap: () {
+              Get.to(const SubcategoryScreen());
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           Text(
             categories[index]['category'],
-            style: TextStyle(
+            style: GoogleFonts.tajawal(
               fontSize: 16,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF666666),
+              color: const Color(0xFF666666),
             ),
           ),
         ],
       ),
     );
   }
-
 }
 
 List categories = [

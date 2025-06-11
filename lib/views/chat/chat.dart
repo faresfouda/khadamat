@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/backButton.dart';
 import 'package:khadamat/components/chatbubbles.dart';
-
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -18,22 +18,20 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         title: Text(
           'كمال حمزة',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+          style: GoogleFonts.almarai(
             color: Colors.white,
           ),
         ),
-        toolbarHeight: 100,
-        centerTitle: true,
-        backgroundColor: Color(0xFF37928B),
-        leading: Back_Button(color: Colors.white,),
+        backgroundColor: const Color(0xFF37928B),
+        leading: const Back_Button(
+          color: Colors.white,
+        ),
       ),
       body: Column(
         children: [
           Expanded(
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
               ),
@@ -45,7 +43,8 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: ListView.builder(
                     itemCount: chat.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return ChatBubble(text: chat[index]['message'] ?? '',
+                      return ChatBubble(
+                        text: chat[index]['message'] ?? '',
                         isSender: chat[index]['sender'] ?? false,
                       );
                     },
@@ -68,28 +67,29 @@ class _ChatScreenState extends State<ChatScreen> {
                           onPressed: () {},
                           icon: SvgPicture.asset(
                             'assets/camera.svg',
-                            color: Color(0xFF37928B),
+                            color: const Color(0xFF37928B),
                           ),
                         ),
                         hintText: 'اكتب هنا',
                         filled: true,
-                        fillColor: Color(0xFFEDFAF9),
+                        fillColor: const Color(0xFFEDFAF9),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide.none,
                         ),
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 10),
                       ),
                     ),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFF37928B),
+                      color: const Color(0xFF37928B),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: IconButton(
-                      onPressed: (){},
+                      onPressed: () {},
                       icon: SvgPicture.asset(
                         'assets/send.svg',
                         color: Colors.white,
@@ -102,7 +102,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ],
       ),
-      backgroundColor: Color(0xFF37928B),
+      backgroundColor: const Color(0xFF37928B),
     );
   }
 }
@@ -110,12 +110,14 @@ class _ChatScreenState extends State<ChatScreen> {
 List chat = [
   {
     'sender': true,
-    'message': 'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر.',
+    'message':
+        'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر.',
     'time': '10:00 AM',
   },
   {
     'sender': false,
-    'message': 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو ',
+    'message':
+        'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو ',
     'time': '10:01 AM',
   },
   {
@@ -130,7 +132,8 @@ List chat = [
   },
   {
     'sender': false,
-    'message': 'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي ,لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي.',
+    'message':
+        'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي ,لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي.',
     'time': '10:01 AM',
   },
   {

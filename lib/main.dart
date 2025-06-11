@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:get/get.dart';
 import 'package:khadamat/controllers/Get_Binding/My_Binding.dart';
 import 'package:khadamat/theme/apptheme.dart';
@@ -7,8 +8,11 @@ import 'package:khadamat/views/workermap.dart';
 import 'package:khadamat/views/Intro_Screen.dart';
 import 'package:khadamat/views/SignIn.dart';
 import 'package:khadamat/views/SignUp.dart';
+import 'package:khadamat/views/workerprofile/WorkerProfile.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await FlutterLocalization.instance.ensureInitialized();
   runApp(const MrFixApp());
 }
 
@@ -19,6 +23,12 @@ class MrFixApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+       localizationsDelegates:
+          FlutterLocalization.instance.localizationsDelegates,
+      supportedLocales: const [
+        Locale('ar'),
+      ],
+      fallbackLocale: const Locale('ar'),
       locale: const Locale('ar'),
       theme: apptheme,
       initialBinding: MyBinding(),

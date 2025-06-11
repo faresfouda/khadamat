@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/theme/apptheme.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -9,6 +10,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      centerTitle: false,
       title: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -16,14 +18,22 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Text(
               'مرحباً $username',
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: GoogleFonts.almarai(
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: AppColors.primary,
+              ),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
               'كيف حالك اليوم!',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: GoogleFonts.almarai(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: const Color(0xFF969696),
+              ),
             ),
           ],
         ),

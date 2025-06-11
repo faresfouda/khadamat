@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/backButton.dart';
 
 class TermsOfUse extends StatelessWidget {
@@ -6,17 +7,14 @@ class TermsOfUse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final service = 'سياسه الاستخدام';
+    const service = 'سياسه الاستخدام';
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(color: Color(0xFF002D5F),),
-        title: Text(
-          '${service}',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF37928B),
-          ),
+        leading: const Back_Button(
+          color: Color(0xFF002D5F),
+        ),
+        title: const Text(
+          service,
         ),
         toolbarHeight: 100,
         centerTitle: true,
@@ -27,22 +25,24 @@ class TermsOfUse extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                  color: Color(0xFFE2EFFF),
-                borderRadius: BorderRadius.circular(10)
-              ),
+                  color: const Color(0xFFE2EFFF),
+                  borderRadius: BorderRadius.circular(10)),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
                 child: Text(
                   'يرجى قراءة هذه السياسة بعناية قبل استخدام التطبيق الذي نديره.',
-                  style: TextStyle(
+                  style: GoogleFonts.tajawal(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
-                    color: Color(0xFF013B7C),
+                    color: const Color(0xFF013B7C),
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 24,),
+            const SizedBox(
+              height: 24,
+            ),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -50,19 +50,21 @@ class TermsOfUse extends StatelessWidget {
                   children: [
                     Text(
                       'سياسة الإستخدام',
-                      style: TextStyle(
+                      style: GoogleFonts.tajawal(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xFF37928B),
+                        color: const Color(0xFF37928B),
                       ),
                     ),
-                    SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       termText,
-                      style: TextStyle(
+                      style: GoogleFonts.tajawal(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
-                        color: Color(0xFF1A1A1B),
+                        color: const Color(0xFF1A1A1B),
                       ),
                     ),
                   ],
@@ -76,7 +78,7 @@ class TermsOfUse extends StatelessWidget {
   }
 }
 
-final String termText = '''
+const String termText = '''
 سياسة الخصوصية
 تنطبق سياسة الخصوصية هذه على تطبيق mrfix (المشار إليه هنا باسم "التطبيق") للأجهزة المحمولة التي تم إنشاؤها بواسطة (المشار إليها هنا باسم "مقدم الخدمة") كخدمة مجانية. هذه الخدمة مخصصة للاستخدام "كما هي".
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/backButton.dart';
 import 'package:khadamat/views/service/widgets/categoryCard.dart';
 
@@ -7,16 +8,16 @@ class ServiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String service = 'أجهزة كهربائية';
+    const String service = 'أجهزة كهربائية';
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(color: Color(0xFF5C5C5C),),
+        leading: const Back_Button(color: Color(0xFF5C5C5C),),
         title: Text(
-          '${service}',
-          style: TextStyle(
+          service,
+          style:  GoogleFonts.tajawal(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF37928B),
+            color: const Color(0xFF37928B),
           ),
         ),
         centerTitle: true,
@@ -27,7 +28,7 @@ class ServiceScreen extends StatelessWidget {
           Expanded(
             child: GridView.builder(
                 itemCount: categories.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,

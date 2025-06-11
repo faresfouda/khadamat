@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/views/service/serviceScreen.dart';
 
 class SearchTags extends StatelessWidget {
+  const SearchTags({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -11,20 +14,20 @@ class SearchTags extends StatelessWidget {
         runSpacing: 12,
         children: List.generate(tags.length, (index) {
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 8.5, vertical: 11),
+            padding: const EdgeInsets.symmetric(horizontal: 8.5, vertical: 11),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
-              border: Border.all(color: Color(0xFFD8D8D8), width: 1),
+              border: Border.all(color: const Color(0xFFD8D8D8), width: 1),
             ),
             child: Text(
               tags[index],
-              style: TextStyle(color: Color(0xFF5C5C5C), fontSize: 12),
+              style:  GoogleFonts.tajawal(color: const Color(0xFF5C5C5C), fontSize: 12),
             ),
           );
         }),
       ),
       onTap: () {
-        Get.to(ServiceScreen());
+        Get.to(const ServiceScreen());
       },
     );
   }

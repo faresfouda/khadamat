@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomSwitchButton extends StatefulWidget {
   const CustomSwitchButton({super.key});
@@ -18,7 +19,7 @@ class _CustomSwitchButtonState extends State<CustomSwitchButton> {
         children: [
           Text(
             'التنبيهات',
-            style: const TextStyle(
+            style: GoogleFonts.tajawal(
               fontSize: 14,
               fontWeight: FontWeight.w500,
               color: Colors.black,
@@ -27,9 +28,9 @@ class _CustomSwitchButtonState extends State<CustomSwitchButton> {
           const Spacer(),
           GestureDetector(
             onTap: () {
-             setState(() {
-               isSwitched = !isSwitched;
-             });
+              setState(() {
+                isSwitched = !isSwitched;
+              });
             },
             child: SvgPicture.asset(
               isSwitched

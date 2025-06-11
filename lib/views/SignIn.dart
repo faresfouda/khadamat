@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:khadamat/components/Custom_SigntextField.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:khadamat/components/CustomtextField.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
+import 'package:khadamat/theme/apptheme.dart';
 import 'package:khadamat/views/home/mainscreen.dart';
 
 class Signin extends StatelessWidget {
@@ -14,29 +16,34 @@ class Signin extends StatelessWidget {
     return SignView(
       screentitle: 'تسجيل الدخول',
       iconchild: null,
-      Logo: 'assets/login.png',
+      Logo: 'assets/sign/signin.svg',
       Child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const CustomSigntextfield(
+          const Customtextfield(
             textfield_title: 'البريد الالكتروني او رقم الهاتف',
             hint_text: 'ادخل البريد الالكتروني او رقم الهاتف',
-            field_icon: null,
+            backicon: null,
             obscureText: false,
+            color: Colors.transparent,
           ),
           Obx(
-            () => CustomSigntextfield(
+            () => Customtextfield(
               textfield_title: 'كلمة المرور',
               hint_text: 'أدخل كلمة المرور',
-              field_icon: IconButton(
+              backicon: IconButton(
                 onPressed: () {
                   getencryptedpassword.secure();
                 },
                 icon: getencryptedpassword.obscureText.value
-                    ? const Icon(Icons.visibility_off)
-                    : const Icon(Icons.visibility),
+                    ? const Icon(
+                        Icons.visibility_off,
+                        color: AppColors.darkGrey,
+                      )
+                    : const Icon(Icons.visibility, color: AppColors.darkGrey),
               ),
               obscureText: getencryptedpassword.obscureText.value,
+              color: Colors.transparent,
             ),
           ),
           Row(
@@ -47,7 +54,10 @@ class Signin extends StatelessWidget {
                 child: TextButton(
                   onPressed: () {},
                   child: Text('هل نسيت كلمة السر ؟',
-                      style: Theme.of(context).textTheme.titleSmall),
+                      style: GoogleFonts.almarai(
+                          color: AppColors.primary,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400)),
                 ),
               ),
               const SizedBox(
@@ -57,11 +67,10 @@ class Signin extends StatelessWidget {
           ),
           FilledButton(
               onPressed: () {
-                Get.off(MainScreen());
+                Get.off(const MainScreen());
               },
-              child: Text(
+              child: const Text(
                 'تسجيل الدخول',
-                style: Theme.of(context).textTheme.bodyMedium,
               )),
           const SizedBox(
             height: 16,
@@ -72,14 +81,19 @@ class Signin extends StatelessWidget {
               const SizedBox(
                 width: 95,
                 child: Divider(
+                  color: AppColors.darkGrey,
                   endIndent: 5,
                 ),
               ),
               Text('او يمكنك التسجيل عبر',
-                  style: Theme.of(context).textTheme.labelSmall),
+                  style: GoogleFonts.almarai(
+                      color: AppColors.darkGrey,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400)),
               const SizedBox(
                 width: 95,
                 child: Divider(
+                  color: AppColors.darkGrey,
                   indent: 5,
                 ),
               ),
@@ -114,23 +128,23 @@ class Signin extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 'ليس لديك حساب؟ ',
-                style: TextStyle(
+                style: GoogleFonts.almarai(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
-                    color: Colors.black),
+                    color: AppColors.blackcolor),
               ),
               TextButton(
                 onPressed: () {
                   Get.toNamed('signup');
                 },
-                child: const Text(
+                child: Text(
                   ' أنشئ حساب جديد',
-                  style: TextStyle(
+                  style: GoogleFonts.almarai(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: Color(0xFF4ECDC4)),
+                      color: AppColors.primary),
                 ),
               )
             ],

@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:khadamat/theme/apptheme.dart';
 
-class CustomSigntextfield extends StatelessWidget {
-  const CustomSigntextfield({
+class Customtextfield extends StatelessWidget {
+  const Customtextfield({
     super.key,
     required this.textfield_title,
     required this.hint_text,
-    required this.field_icon,
-    required this.obscureText,
+    required this.backicon,
+    required this.obscureText, required this.color,
   });
   final String textfield_title;
   final String hint_text;
-  final IconButton? field_icon;
+  final IconButton? backicon;
+  final Color color;
+
   final bool obscureText;
   @override
   Widget build(BuildContext context) {
@@ -19,9 +23,12 @@ class CustomSigntextfield extends StatelessWidget {
         Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: 16),
+              padding: const EdgeInsets.only(right: 8),
               child: Text(textfield_title,
-                  style: Theme.of(context).textTheme.titleMedium),
+                  style: GoogleFonts.almarai(
+                      color: AppColors.blackcolor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400)),
             ),
           ],
         ),
@@ -29,16 +36,19 @@ class CustomSigntextfield extends StatelessWidget {
           height: 8,
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 16, left: 16),
+          padding: const EdgeInsets.only(right: 8, left: 8),
           child: TextFormField(
               obscureText: obscureText,
               obscuringCharacter: '*',
               decoration: InputDecoration(
-                suffixIcon: field_icon,
+                suffixIcon: backicon,
                 filled: true,
-                fillColor: Colors.white,
+                fillColor: color,
                 hintText: hint_text,
-                hintStyle: Theme.of(context).textTheme.labelSmall,
+                hintStyle: GoogleFonts.almarai(
+                    color: const Color(0xFF969696),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400),
                 focusedBorder: OutlineInputBorder(
                     borderSide: const BorderSide(color: Color(0xFFDFDFDF)),
                     borderRadius: BorderRadius.circular(16)),

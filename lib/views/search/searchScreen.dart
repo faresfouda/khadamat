@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/backButton.dart';
 import 'package:khadamat/views/search/widgets/searchTags.dart';
 
@@ -11,7 +12,6 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-
   final FocusNode _focusNode = FocusNode();
 
   @override
@@ -21,6 +21,7 @@ class _SearchScreenState extends State<SearchScreen> {
       _focusNode.requestFocus();
     });
   }
+
   @override
   void dispose() {
     _focusNode.dispose();
@@ -31,14 +32,16 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(color: Color(0xFF5C5C5C),),
+        leading: const Back_Button(
+          color: Color(0xFF5C5C5C),
+        ),
         toolbarHeight: 100,
         title: Padding(
           padding: const EdgeInsets.only(left: 24),
           child: TextField(
             focusNode: _focusNode,
             decoration: InputDecoration(
-              fillColor: Color(0xFFF5F5F5),
+              fillColor: const Color(0xFFF5F5F5),
               filled: true,
               hintText: 'ما الذي تبحث عنه؟',
               prefixIcon: IconButton(
@@ -49,29 +52,34 @@ class _SearchScreenState extends State<SearchScreen> {
                   Navigator.pop(context);
                 },
               ),
-              hintStyle: TextStyle(color: Color(0xFFA1A1A1),fontSize: 16),
+              hintStyle: GoogleFonts.tajawal(
+                  color: const Color(0xFFA1A1A1), fontSize: 16),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none,
               ),
             ),
-            onTap: () {
-
-            },
+            onTap: () {},
           ),
         ),
         titleSpacing: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(right: 24.0,left:20),
+        padding: const EdgeInsets.only(right: 24.0, left: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 16.0,bottom: 16),
-              child: Text('ابحث باسم الخدمة',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Color(0xFF37928B)),),
+              padding: const EdgeInsets.only(top: 16.0, bottom: 16),
+              child: Text(
+                'ابحث باسم الخدمة',
+                style: GoogleFonts.tajawal(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF37928B)),
+              ),
             ),
-            SearchTags(),
+            const SearchTags(),
           ],
         ),
       ),

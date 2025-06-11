@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/views/servicecategory/serice_category.dart';
 
-class ServicesCard extends StatelessWidget{
+class ServicesCard extends StatelessWidget {
   final Image image;
   final String title;
 
@@ -28,17 +29,25 @@ class ServicesCard extends StatelessWidget{
               ),
               child: image,
             ),
-            onTap: (){
+            onTap: () {
               Get.to(const ServiceCategoryScreen());
             },
           ),
-          const SizedBox(height: 6,),
-          Text(title,textAlign: TextAlign.center,style: const TextStyle(fontSize: 12,color: Color(0xFF133848)),)
+          const SizedBox(
+            height: 6,
+          ),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.almarai(
+                fontSize: 12,
+                color: const Color(0xFF133848),
+                fontWeight: FontWeight.w400),
+          )
         ],
       ),
     );
   }
-
 }
 
 final services = [

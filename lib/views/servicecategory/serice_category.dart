@@ -7,17 +7,13 @@ class ServiceCategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String service = 'التشطيبات';
+    const String service = 'التشطيبات';
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(color: Color(0xFF5C5C5C),),
-        title: Text(
-          '${service}',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF37928B),
-          ),
+        leading: const Back_Button(color: Color(0xFF5C5C5C),),
+        title: const Text(
+          service,
+         
         ),
         toolbarHeight: 100,
         centerTitle: true,
@@ -27,7 +23,7 @@ class ServiceCategoryScreen extends StatelessWidget {
           Expanded(
             child: GridView.builder(
                 itemCount: categories.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 0,
                   childAspectRatio: 1,
