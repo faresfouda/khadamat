@@ -1,9 +1,9 @@
 class EndPoint {
-  static const String baseUrl = 'https://restaurant-reservation-sys.vercel.app/';
-  static const String login = '${baseUrl}users/signin';
+  static const String baseUrl = 'https://mr-fix-backend.onrender.com/';
+  static const String login = '${baseUrl}api/v1/auth/login';
 }
 class ApiKey {
-  static String status = 'status';
+  static String success = 'success';
   static String message = 'message';
   static String data = 'data';
   static String error = 'error';

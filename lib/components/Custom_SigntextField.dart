@@ -7,11 +7,14 @@ class CustomSigntextfield extends StatelessWidget {
     required this.hint_text,
     required this.field_icon,
     required this.obscureText,
+    this.controller,
   });
   final String textfield_title;
   final String hint_text;
   final IconButton? field_icon;
   final bool obscureText;
+  final TextEditingController? controller;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -45,7 +48,9 @@ class CustomSigntextfield extends StatelessWidget {
                 enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(color: Color(0xFFDFDFDF)),
                     borderRadius: BorderRadius.circular(16)),
-              )),
+              ),
+              controller: controller,
+          ),
         ),
         const SizedBox(
           height: 8,

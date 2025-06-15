@@ -3,12 +3,34 @@ import 'package:get/get.dart';
 import 'package:khadamat/components/Custom_SigntextField.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
+import 'package:khadamat/controllers/user_controller.dart';
+import 'package:khadamat/services/api/auth/auth_service.dart';
 import 'package:khadamat/views/home/mainscreen.dart';
 
-class Signin extends StatelessWidget {
+class Signin extends StatefulWidget {
   Signin({super.key});
+
+  @override
+  State<Signin> createState() => _SigninState();
+}
+
+class _SigninState extends State<Signin> {
   final Getencryptedpassword getencryptedpassword =
       Get.put(Getencryptedpassword(), permanent: false);
+  final AuthController authController = Get.put(
+    AuthController(authService: auth_service(apiConsumer: Get.find())),
+  );
+
+  final TextEditingController emailController = TextEditingController();
+
+  final TextEditingController passwordController = TextEditingController();
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SignView(
@@ -18,11 +40,12 @@ class Signin extends StatelessWidget {
       Child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const CustomSigntextfield(
+           CustomSigntextfield(
             textfield_title: 'البريد الالكتروني او رقم الهاتف',
             hint_text: 'ادخل البريد الالكتروني او رقم الهاتف',
             field_icon: null,
             obscureText: false,
+            controller: emailController,
           ),
           Obx(
             () => CustomSigntextfield(
@@ -37,6 +60,7 @@ class Signin extends StatelessWidget {
                     : const Icon(Icons.visibility),
               ),
               obscureText: getencryptedpassword.obscureText.value,
+              controller: passwordController,
             ),
           ),
           Row(
@@ -56,13 +80,28 @@ class Signin extends StatelessWidget {
             ],
           ),
           FilledButton(
-              onPressed: () {
-                Get.off(MainScreen());
-              },
-              child: Text(
-                'تسجيل الدخول',
-                style: Theme.of(context).textTheme.bodyMedium,
-              )),
+            onPressed: () async {
+              final email = emailController.text.trim();
+              final password = passwordController.text.trim();
+
+              if (email.isEmpty || password.isEmpty) {
+                Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
+                return;
+              }
+
+              try {
+                await authController.login(email, password);
+                Get.offAll(() => MainScreen());
+              } catch (e) {
+                Get.snackbar('فشل تسجيل الدخول', e.toString(),
+                    snackPosition: SnackPosition.BOTTOM);
+              }
+            },
+            child: Text(
+              'تسجيل الدخول',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
           const SizedBox(
             height: 16,
           ),
