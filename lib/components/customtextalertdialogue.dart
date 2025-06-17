@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:khadamat/components/elevatedButton.dart';
 
 void CustomTextAlertDialogue(BuildContext context,final int? fillcolor,final int? bordercolor,
+    final VoidCallback? onpressed,
     {required String title,
     required String buttontext,}) {
   showDialog(
@@ -59,7 +60,7 @@ void CustomTextAlertDialogue(BuildContext context,final int? fillcolor,final int
                     radius: 10,
                     fillcolor: fillcolor?? 0xFF37928B,
                     bordercolor: bordercolor?? 0xFF37928B,
-                    onpressed: () {},
+                    onpressed: onpressed,
                   ),
                 ),
                 const SizedBox(height: 8),

@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:khadamat/models/subcategory_model.dart';
 import 'package:khadamat/views/subcategory/subcategory.dart';
 
 class ServiceCategoryCard extends StatelessWidget{
   final int index;
+  final SubCategory subCategory;
 
-  const ServiceCategoryCard({super.key, required this.index});
+  const ServiceCategoryCard({super.key, required this.index, required this.subCategory});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,10 +18,9 @@ class ServiceCategoryCard extends StatelessWidget{
             child: Container(
               height: 140,
               width: 190,
-              child: Image.asset(
-                'assets/${categories[index]['image']}',
-                fit: BoxFit.fill,
-              ),
+              child: (subCategory.image_url == null)
+                  ? Image.asset('assets/service_cat_1.png', fit: BoxFit.cover)
+                  : Image.network(subCategory.image_url!, fit: BoxFit.cover),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
@@ -29,14 +30,17 @@ class ServiceCategoryCard extends StatelessWidget{
               ),
             ),
             onTap: (){
-              Get.to(SubcategoryScreen());
+              Get.to(SubcategoryScreen(
+                categoryId: subCategory.id,
+                serviceName: subCategory.name ?? 'الخدمة',
+              ));
             },
           ),
           SizedBox(
             height: 12,
           ),
           Text(
-            categories[index]['category'],
+            subCategory.name ?? 'غير متوفر',
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,

@@ -17,9 +17,7 @@ class Signin extends StatefulWidget {
 class _SigninState extends State<Signin> {
   final Getencryptedpassword getencryptedpassword =
       Get.put(Getencryptedpassword(), permanent: false);
-  final AuthController authController = Get.put(
-    AuthController(authService: auth_service(apiConsumer: Get.find())),
-  );
+  AuthController authController = Get.find<AuthController>();
 
   final TextEditingController emailController = TextEditingController();
 
@@ -79,29 +77,35 @@ class _SigninState extends State<Signin> {
               ),
             ],
           ),
-          FilledButton(
-            onPressed: () async {
-              final email = emailController.text.trim();
-              final password = passwordController.text.trim();
+          Obx(() {
+            return authController.isLoading.value
+                ? const Center(child: CircularProgressIndicator())
+                : FilledButton(
+              onPressed: () async {
+                final email = emailController.text.trim();
+                final password = passwordController.text.trim();
 
-              if (email.isEmpty || password.isEmpty) {
-                Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
-                return;
-              }
+                if (email.isEmpty || password.isEmpty) {
+                  Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
+                  return;
+                }
 
-              try {
-                await authController.login(email, password);
-                Get.offAll(() => MainScreen());
-              } catch (e) {
-                Get.snackbar('فشل تسجيل الدخول', e.toString(),
-                    snackPosition: SnackPosition.BOTTOM);
-              }
-            },
-            child: Text(
-              'تسجيل الدخول',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-          ),
+                try {
+                  await authController.login(email, password);
+                  Get.offAll(() => MainScreen());
+                } catch (e) {
+                  authController.isLoading.value = false;
+                  Get.snackbar('فشل تسجيل الدخول', e.toString(),
+                      snackPosition: SnackPosition.BOTTOM);
+                }
+              },
+              child: Text(
+                'تسجيل الدخول',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            );
+          }),
+
           const SizedBox(
             height: 16,
           ),

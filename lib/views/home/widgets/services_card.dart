@@ -5,8 +5,10 @@ import 'package:khadamat/views/servicecategory/serice_category.dart';
 class ServicesCard extends StatelessWidget{
   final Image image;
   final String title;
+  final int? categoryId;
+  final String serviceName;
 
-  const ServicesCard({super.key, required this.image, required this.title});
+  const ServicesCard({super.key, required this.image, required this.title, this.categoryId, required this.serviceName});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -29,7 +31,10 @@ class ServicesCard extends StatelessWidget{
               child: image,
             ),
             onTap: (){
-              Get.to(const ServiceCategoryScreen());
+              Get.to( ServiceCategoryScreen(
+                categoryId: categoryId,
+                serviceName: serviceName,
+              ));
             },
           ),
           const SizedBox(height: 6,),
@@ -41,8 +46,3 @@ class ServicesCard extends StatelessWidget{
 
 }
 
-final services = [
-  {'service': 'التشطيبات', 'image': 'assets/house.png'},
-  {'service': 'النقل والتوصيل', 'image': 'assets/truck.png'},
-  {'service': 'التشطيبات', 'image': 'assets/house.png'},
-];

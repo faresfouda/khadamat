@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:khadamat/components/customtextalertdialogue.dart';
+import 'package:khadamat/controllers/home_controller.dart';
+import 'package:khadamat/controllers/user_controller.dart';
 import 'package:khadamat/views/profile/contactus.dart';
 import 'package:khadamat/views/profile/editprofile.dart';
 import 'package:khadamat/views/profile/termsofuse.dart';
@@ -17,6 +19,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  AuthController authController = Get.find<AuthController>();
+  UserController userController = Get.find<UserController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,6 +82,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             context,
                             0xFF37928B,
                             0xFF37928B,
+                            () {
+                              authController.logout();
+                              Get.offAllNamed('signin');
+                            },
                             title: 'هل أنت متأكد من تسجيل الخروج ؟',
                             buttontext: 'تسجيل الخروج',
                           );
@@ -89,6 +97,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             context,
                             0xFFE83636,
                             0xFFE83636,
+                            () {
+                              authController.logout();
+                              Get.offAllNamed('signin');
+                            },
                             title: 'هل أنت متأكد من تسجيل الخروج ؟',
                             buttontext: 'حذف الحساب',
                           );
@@ -112,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'احمد صلاح الدين',
+                    userController.user.value?.name ?? 'مستخدم',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,

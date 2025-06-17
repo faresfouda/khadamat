@@ -1,18 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:khadamat/components/backButton.dart';
+import 'package:khadamat/controllers/category_controller.dart';
+import 'package:khadamat/services/api/category/category_services.dart';
 import 'package:khadamat/views/servicecategory/widget/service_category_card.dart';
 
-class ServiceCategoryScreen extends StatelessWidget {
-  const ServiceCategoryScreen({super.key});
+class ServiceCategoryScreen extends StatefulWidget {
+  final String serviceName;
+  final int? categoryId;
+  const ServiceCategoryScreen({super.key, this.categoryId, this.serviceName = 'الخدمة'});
 
   @override
+  State<ServiceCategoryScreen> createState() => _ServiceCategoryScreenState();
+}
+class _ServiceCategoryScreenState extends State<ServiceCategoryScreen> {
+  final CategoryController categoryController = Get.find<CategoryController>();
+  @override
+  void initState() {
+    super.initState();
+    if (widget.categoryId != null) {
+      categoryController.LoadSubCategory(widget.categoryId!);
+    }
+  }
+  @override
   Widget build(BuildContext context) {
-    final String service = 'التشطيبات';
     return Scaffold(
       appBar: AppBar(
         leading: Back_Button(color: Color(0xFF5C5C5C),),
         title: Text(
-          '${service}',
+          '${widget.serviceName}',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -25,8 +41,13 @@ class ServiceCategoryScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: GridView.builder(
-                itemCount: categories.length,
+            child: Obx(() {
+              final subCategories = categoryController.subCategories;
+              if (subCategories.isEmpty) {
+                return Center(child: CircularProgressIndicator());
+              }
+              return GridView.builder(
+                itemCount: subCategories.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 0,
@@ -34,13 +55,14 @@ class ServiceCategoryScreen extends StatelessWidget {
                   mainAxisSpacing: 0,
                 ),
                 itemBuilder: (context, index) {
-                  return ServiceCategoryCard(
-                    index: index,
-                  );
-                }),
+                  return ServiceCategoryCard(subCategory: subCategories[index], index: index);
+                },
+              );
+            }),
           ),
         ],
       ),
+
     );
   }
 }
