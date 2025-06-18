@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:khadamat/controllers/AuthController.dart';
+import 'package:khadamat/services/api/auth/auth_service.dart';
 import 'package:khadamat/theme/apptheme.dart';
 import 'package:khadamat/views/home/widgets/search_button.dart';
 import 'package:khadamat/views/myorders/currentorder/currentorder.dart';
@@ -11,6 +15,7 @@ class MyOrders extends StatefulWidget {
   @override
   State<MyOrders> createState() => _MyOrdersState();
 }
+
 
 List<Widget> pages = [Currentorder(), Previousorder()];
 PageController pageController = PageController();
@@ -24,9 +29,9 @@ class _MyOrdersState extends State<MyOrders> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-              padding:
-                  const EdgeInsets.only(top: 50, bottom: 12, right: 20, left: 20),
-              child: SearchButton(ontap: (){})),
+              padding: const EdgeInsets.only(
+                  top: 50, bottom: 12, right: 20, left: 20),
+              child: SearchButton(ontap: () {})),
           const SizedBox(
             height: 8,
           ),

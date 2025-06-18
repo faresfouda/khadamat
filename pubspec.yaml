@@ -43,6 +43,7 @@ dependencies:
   dotted_border: ^3.0.1
   table_calendar: 
   flutter_localization: ^0.3.2
+  jwt_decoder: ^2.0.1
 
 dev_dependencies:
   flutter_test:

@@ -5,6 +5,7 @@ import 'package:khadamat/components/CustomtextField.dart';
 import 'package:khadamat/controllers/AuthController.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
+import 'package:khadamat/models/UserModel.dart';
 import 'package:khadamat/theme/apptheme.dart';
 import 'package:khadamat/views/home/mainscreen.dart';
 
@@ -18,6 +19,7 @@ class SignUp extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+  final User user = User();
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -109,12 +111,16 @@ class SignUp extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              FilledButton(
-                  onPressed: SignUpButton,
-                  style: Theme.of(context).filledButtonTheme.style,
-                  child: const Text(
-                    'إنشاء حساب',
-                  )),
+              Obx(() {
+                return authController.isLoading == true
+                    ? const Center(child: CircularProgressIndicator())
+                    : FilledButton(
+                        onPressed: SignUpButton,
+                        style: Theme.of(context).filledButtonTheme.style,
+                        child: const Text(
+                          'إنشاء حساب',
+                        ));
+              }),
               const SizedBox(
                 height: 20,
               ),
@@ -126,31 +132,29 @@ class SignUp extends StatelessWidget {
   }
 
   void SignUpButton() async {
-                  final name = nameController.text;
-                  final email = emailController.text.trim();
-                  final password = passwordController.text.trim();
-                  final confirmpassword =
-                      confirmPasswordController.text.trim();
-                  if (confirmpassword != password ||
-                      confirmpassword.isEmpty) {
-                    Get.snackbar("خطأ", 'يرجى تأكيد كلمة المرور');
-                  }
-                  if (email.isEmpty ||
-                      password.isEmpty ||
-                      name.isEmpty ||
-                      confirmpassword.isEmpty) {
-                    Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
-                    return;
-                  }
-                  try {
-                    await authController.register(
-                        name, email, password, confirmpassword);
-                    Get.offAll(() => const MainScreen());
-                  } catch (e) {
-                    authController.isLoading.value = false;
-                    Get.snackbar('فشل تسجيل الدخول',
-                        'يوجد بالفعل مستخدم مسجل بهذا البريد الإلكتروني أو رقم الهاتف',
-                        snackPosition: SnackPosition.BOTTOM);
-                  }
-                }
+    final name = nameController.text;
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+    final confirmpassword = confirmPasswordController.text.trim();
+    if (confirmpassword != password || confirmpassword.isEmpty) {
+      Get.snackbar("خطأ", 'يرجى تأكيد كلمة المرور');
+    }
+    if (email.isEmpty ||
+        password.isEmpty ||
+        name.isEmpty ||
+        confirmpassword.isEmpty) {
+      Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
+      return;
+    }
+    try {
+      await authController.register(name, email, password, confirmpassword);
+      authController.isLoading.value = true;
+      Get.offAll(() => const MainScreen());
+    } catch (e) {
+      authController.isLoading.value = false;
+      Get.snackbar('فشل تسجيل الدخول',
+          'يوجد بالفعل مستخدم مسجل بهذا البريد الإلكتروني أو رقم الهاتف',
+          snackPosition: SnackPosition.BOTTOM);
+    }
+  }
 }

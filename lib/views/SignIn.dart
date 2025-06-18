@@ -5,6 +5,7 @@ import 'package:khadamat/components/CustomtextField.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
 import 'package:khadamat/controllers/AuthController.dart';
+import 'package:khadamat/models/UserModel.dart';
 import 'package:khadamat/theme/apptheme.dart';
 import 'package:khadamat/views/home/mainscreen.dart';
 
@@ -20,6 +21,7 @@ class _SigninState extends State<Signin> {
   AuthController authController = Get.find<AuthController>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final User user = User();
   @override
   void dispose() {
     emailController.dispose();
@@ -171,22 +173,19 @@ class _SigninState extends State<Signin> {
   }
 
   void SignInButton() async {
-            final email = emailController.text.trim();
-            final password = passwordController.text.trim();
-  
-            if (email.isEmpty || password.isEmpty) {
-              Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
-              return;
-            }
-  
-            try {
-              await authController.login(email, password);
-              Get.offAll(() => const MainScreen());
-            } catch (e) {
-              authController.isLoading.value = false;
-              Get.snackbar('فشل تسجيل الدخول', e.toString(),
-                  snackPosition: SnackPosition.BOTTOM);
-            }
-          }
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+    if (email.isEmpty || password.isEmpty) {
+      Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
+      return;
+    }
+    try {
+      await authController.login(email, password);
+      Get.offAll(() => const MainScreen());
+    } catch (e) {
+      authController.isLoading.value = false;
+      Get.snackbar('فشل تسجيل الدخول', e.toString(),
+          snackPosition: SnackPosition.BOTTOM);
+    }
+  }
 }
-

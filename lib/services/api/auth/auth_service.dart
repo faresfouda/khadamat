@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:khadamat/services/api/api_consumer.dart';
 import 'package:khadamat/services/api/end_point.dart';
@@ -24,6 +25,7 @@ class auth_service extends GetxController {
       throw Exception(response['message'] ?? 'Login failed');
     }
   }
+
   Future<Map<String, dynamic>> register({
     required String name,
     required String email,
@@ -32,10 +34,10 @@ class auth_service extends GetxController {
     final response = await apiConsumer.post(
       EndPoint.register,
       body: {
-        ApiKey.name : name,
+        ApiKey.name: name,
         ApiKey.email: email,
         ApiKey.password: password,
-        ApiKey.role : 'user',
+        ApiKey.role: 'user',
       },
     );
 
@@ -46,4 +48,15 @@ class auth_service extends GetxController {
     }
   }
 
+  Future<Map<String, dynamic>> getCurrentOrder({required String Token}) async {
+    final response = await apiConsumer.get(EndPoint.myOrder, headers: {
+      'Authorization': 'Bearer $Token',
+    });
+
+    if (response['success'] == true) {
+      return response;
+    } else {
+      throw Exception(response['error'] ?? 'Register failed');
+    }
+  }
 }

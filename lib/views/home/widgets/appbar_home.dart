@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:khadamat/controllers/AuthController.dart';
 import 'package:khadamat/theme/apptheme.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String username;
+  final AuthController authController = Get.find<AuthController>();
 
-  const HomeAppBar({super.key, required this.username});
-
+  HomeAppBar({super.key});
   @override
   Widget build(BuildContext context) {
+    final String username = authController.user.value!.name!;
     return AppBar(
       centerTitle: false,
       title: Padding(

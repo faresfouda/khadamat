@@ -14,8 +14,8 @@ class MyBinding extends Bindings {
     Get.put(GetIntro());
     Get.put(Datecontroller());
     Get.put(Radiocontroller());
-     Get.put<ApiConsumer>(DioConsumer(dio: Dio()));
-    Get.put(AuthController(authService: auth_service(apiConsumer: Get.find())),);
+    Get.put<ApiConsumer>(DioConsumer(dio: Dio()));
+    Get.put(AuthController(authService: auth_service(apiConsumer: Get.find())),permanent: true);
 
   }
 }

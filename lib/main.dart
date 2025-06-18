@@ -36,7 +36,7 @@ class MrFixApp extends StatelessWidget {
         GetPage(name: '/', page: () => IntroScreen()),
         GetPage(
           name: '/signin',
-          page: () => Signin(),
+          page: () => const Signin(),
         ),
         GetPage(
           name: '/signup',

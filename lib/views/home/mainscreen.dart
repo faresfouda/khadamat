@@ -6,12 +6,15 @@ import 'package:khadamat/views/myorders/my_orders.dart';
 import 'package:khadamat/views/profile/profileScreen.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  const MainScreen({
+    super.key,
+  });
+
   @override
-  State<MainScreen> createState() => _HomeScreenState();
+  State<MainScreen> createState() => MainScreenState();
 }
 
-class _HomeScreenState extends State<MainScreen> {
+class MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   final List<Widget> _screens = [
     const HomeScreen(),
@@ -28,9 +31,8 @@ class _HomeScreenState extends State<MainScreen> {
         child: CustomBottomNavBar(
           selectedIndex: _selectedIndex,
           onItemTapped: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
+            setState(() {});
+            _selectedIndex = index;
           },
         ),
       ),
