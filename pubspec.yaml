@@ -42,6 +42,8 @@ dependencies:
   share_plus: ^11.0.0
   shared_preferences: ^2.3.3
   intl: ^0.20.2
+  table_calendar: ^3.2.0
+  dotted_border: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +65,13 @@ flutter:
   assets:
     - assets/
     - assets/icons/
+    - assets/intro/
+    - assets/sign/
+    - assets/currentorder/
+    - assets/previouswork/
+    - assets/worker/
+    - assets/Alert/
+    - assets/user/
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

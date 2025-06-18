@@ -51,21 +51,19 @@ class Editorder extends StatelessWidget {
                           ))
                     ],
                   ),
-                  const DottedBorder(
-                    options: RoundedRectDottedBorderOptions(
-                      radius: Radius.circular(10),
-                      dashPattern: [5],
-                      color: Color(0xFF666666),
-                    ),
+                  DottedBorder(
+                    color: const Color(0xFF666666),
+                    dashPattern: const [5],
+                    strokeWidth: 1,
+                    borderType: BorderType.RRect,
+                    radius: const Radius.circular(10),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      clipBehavior: Clip.antiAlias,
-                      child: Image(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        'assets/currentorder/MyCurrentOrder.png',
                         height: 180,
                         width: 360,
                         fit: BoxFit.cover,
-                        image: AssetImage(
-                            'assets/currentorder/MyCurrentOrder.png'),
                       ),
                     ),
                   ),

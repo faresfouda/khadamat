@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:khadamat/components/Custom_SigntextField.dart';
+import 'package:khadamat/components/customLoginTextField.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
 import 'package:khadamat/controllers/user_controller.dart';
@@ -16,8 +16,8 @@ class Signin extends StatefulWidget {
 
 class _SigninState extends State<Signin> {
   final Getencryptedpassword getencryptedpassword =
-      Get.put(Getencryptedpassword(), permanent: false);
-  AuthController authController = Get.find<AuthController>();
+  Get.put(Getencryptedpassword(), permanent: false);
+  AuthController_1 authController = Get.find<AuthController_1>();
 
   final TextEditingController emailController = TextEditingController();
 
@@ -34,11 +34,11 @@ class _SigninState extends State<Signin> {
     return SignView(
       screentitle: 'تسجيل الدخول',
       iconchild: null,
-      Logo: 'assets/login.png',
+      Logo: 'assets/sign/signin.svg',
       Child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-           CustomSigntextfield(
+          CustomSigntextfield(
             textfield_title: 'البريد الالكتروني او رقم الهاتف',
             hint_text: 'ادخل البريد الالكتروني او رقم الهاتف',
             field_icon: null,
@@ -46,7 +46,7 @@ class _SigninState extends State<Signin> {
             controller: emailController,
           ),
           Obx(
-            () => CustomSigntextfield(
+                () => CustomSigntextfield(
               textfield_title: 'كلمة المرور',
               hint_text: 'أدخل كلمة المرور',
               field_icon: IconButton(

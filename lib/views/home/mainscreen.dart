@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:khadamat/views/chat/chat_list.dart';
 import 'package:khadamat/views/home/homescreen.dart';
 import 'package:khadamat/views/home/widgets/custom_bottom_navbar.dart';
+import 'package:khadamat/views/myorders/my_orders.dart';
 import 'package:khadamat/views/profile/profileScreen.dart';
 
 
@@ -16,7 +17,7 @@ class _HomeScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   final List <Widget> _screens = [
     const HomeScreen(),
-    const Center(child: Text('طلباتي')),
+    const MyOrders(),
      ChatList(),
     const ProfileScreen(),
   ];

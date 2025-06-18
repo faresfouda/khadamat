@@ -28,7 +28,7 @@ class WorkerProfile extends StatelessWidget {
               ContactContainer(
                 contacticon: Icons.chat,
                 onpresed: () {
-                  Get.to(const ChatScreen());
+                  // Get.to(const ChatScreen());
                 },
               ),
               Column(

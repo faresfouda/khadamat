@@ -19,14 +19,14 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  AuthController authController = Get.find<AuthController>();
+  AuthController_1 authController = Get.find<AuthController_1>();
   UserController userController = Get.find<UserController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset('assets/profile_background.png',
+          Image.asset('assets/worker/workerinfobackground.png',
             fit:BoxFit.cover,
             width: double.infinity,
           ),

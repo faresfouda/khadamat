@@ -3,14 +3,22 @@ import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/controllers/AuthController.dart';
+import 'package:khadamat/controllers/user_controller.dart';
 import 'package:khadamat/services/api/end_point.dart';
 
-class Currentorder extends StatelessWidget {
+class Currentorder extends StatefulWidget {
   Currentorder({super.key});
-  final AuthController authController = Get.find<AuthController>();
+
+  @override
+  State<Currentorder> createState() => _CurrentorderState();
+}
+
+class _CurrentorderState extends State<Currentorder> {
+  final AuthController_1 authController = Get.find<AuthController_1>();
+
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AuthController>(builder: (controller) {
+    return GetBuilder<AuthController_1>(builder: (controller) {
       const String image = 'assets/currentorder/order.png';
       return FutureBuilder(
           future: controller.Currentorder(),

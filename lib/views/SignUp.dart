@@ -5,6 +5,7 @@ import 'package:khadamat/components/CustomtextField.dart';
 import 'package:khadamat/controllers/AuthController.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
+import 'package:khadamat/controllers/user_controller.dart';
 import 'package:khadamat/models/UserModel.dart';
 import 'package:khadamat/theme/apptheme.dart';
 import 'package:khadamat/views/home/mainscreen.dart';
@@ -13,7 +14,7 @@ class SignUp extends StatelessWidget {
   SignUp({super.key});
   final Getencryptedpassword getencryptedpassword =
       Get.put(Getencryptedpassword());
-  final AuthController authController = Get.find<AuthController>();
+  final AuthController_1 authController = Get.find<AuthController_1>();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -147,7 +148,7 @@ class SignUp extends StatelessWidget {
       return;
     }
     try {
-      await authController.register(name, email, password, confirmpassword);
+      await authController.register(name, email, password);
       authController.isLoading.value = true;
       Get.offAll(() => const MainScreen());
     } catch (e) {

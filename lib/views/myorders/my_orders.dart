@@ -31,7 +31,8 @@ class _MyOrdersState extends State<MyOrders> {
           Padding(
               padding: const EdgeInsets.only(
                   top: 50, bottom: 12, right: 20, left: 20),
-              child: SearchButton(ontap: () {})),
+              child: SearchButton()
+          ),
           const SizedBox(
             height: 8,
           ),
