@@ -31,7 +31,7 @@ class ContactUs extends StatelessWidget {
             iconPath: 'assets/icons/message-text.svg',
             text: 'خدمة العملاء',
             onTap: () {
-             Get.to(() => ChatScreen());
+             // Get.to(() => ChatScreen());
             },
           ),
           SizedBox(height: 16,),

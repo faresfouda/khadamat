@@ -1,4 +1,4 @@
-class ChatModel {
+class ChatPreviewModel {
   final int id;
   final int senderId;
   final int receiverId;
@@ -7,8 +7,11 @@ class ChatModel {
   final DateTime sentAt;
   final String senderName;
   final String receiverName;
+  final String otherUserName;
+  final int otherUserId;
+  final String serviceName;
 
-  ChatModel({
+  ChatPreviewModel({
     required this.id,
     required this.senderId,
     required this.receiverId,
@@ -17,10 +20,13 @@ class ChatModel {
     required this.sentAt,
     required this.senderName,
     required this.receiverName,
+    required this.otherUserName,
+    required this.otherUserId,
+    required this.serviceName,
   });
 
-  factory ChatModel.fromJson(Map<String, dynamic> json) {
-    return ChatModel(
+  factory ChatPreviewModel.fromJson(Map<String, dynamic> json) {
+    return ChatPreviewModel(
       id: json['id'],
       senderId: json['sender_id'],
       receiverId: json['receiver_id'],
@@ -29,6 +35,9 @@ class ChatModel {
       sentAt: DateTime.parse(json['sent_at']),
       senderName: json['sender']['name'],
       receiverName: json['receiver']['name'],
+      otherUserName: json['otherUser']['name'],
+      otherUserId: json['otherUser']['id'],
+      serviceName: json['order']['service']['name'],
     );
   }
 }
