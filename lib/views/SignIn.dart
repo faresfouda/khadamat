@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:khadamat/components/CustomtextField.dart';
+import 'package:khadamat/components/Custom_SigntextField.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
-import 'package:khadamat/controllers/AuthController.dart';
-import 'package:khadamat/models/UserModel.dart';
-import 'package:khadamat/theme/apptheme.dart';
+import 'package:khadamat/controllers/user_controller.dart';
+import 'package:khadamat/services/api/auth/auth_service.dart';
 import 'package:khadamat/views/home/mainscreen.dart';
 
 class Signin extends StatefulWidget {
-  const Signin({super.key});
+  Signin({super.key});
+
   @override
   State<Signin> createState() => _SigninState();
 }
@@ -19,9 +18,10 @@ class _SigninState extends State<Signin> {
   final Getencryptedpassword getencryptedpassword =
       Get.put(Getencryptedpassword(), permanent: false);
   AuthController authController = Get.find<AuthController>();
+
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
-  final User user = User();
   @override
   void dispose() {
     emailController.dispose();
@@ -34,23 +34,22 @@ class _SigninState extends State<Signin> {
     return SignView(
       screentitle: 'تسجيل الدخول',
       iconchild: null,
-      Logo: 'assets/sign/signin.svg',
+      Logo: 'assets/login.png',
       Child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Customtextfield(
+           CustomSigntextfield(
             textfield_title: 'البريد الالكتروني او رقم الهاتف',
             hint_text: 'ادخل البريد الالكتروني او رقم الهاتف',
+            field_icon: null,
             obscureText: false,
             controller: emailController,
-            backicon: null,
-            color: Colors.transparent,
           ),
           Obx(
-            () => Customtextfield(
+            () => CustomSigntextfield(
               textfield_title: 'كلمة المرور',
               hint_text: 'أدخل كلمة المرور',
-              backicon: IconButton(
+              field_icon: IconButton(
                 onPressed: () {
                   getencryptedpassword.secure();
                 },
@@ -60,7 +59,6 @@ class _SigninState extends State<Signin> {
               ),
               obscureText: getencryptedpassword.obscureText.value,
               controller: passwordController,
-              color: Colors.transparent,
             ),
           ),
           Row(
@@ -71,10 +69,7 @@ class _SigninState extends State<Signin> {
                 child: TextButton(
                   onPressed: () {},
                   child: Text('هل نسيت كلمة السر ؟',
-                      style: GoogleFonts.almarai(
-                          color: AppColors.primary,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400)),
+                      style: Theme.of(context).textTheme.titleSmall),
                 ),
               ),
               const SizedBox(
@@ -86,12 +81,31 @@ class _SigninState extends State<Signin> {
             return authController.isLoading.value
                 ? const Center(child: CircularProgressIndicator())
                 : FilledButton(
-                    onPressed: SignInButton,
-                    child: const Text(
-                      'تسجيل الدخول',
-                    ),
-                  );
+              onPressed: () async {
+                final email = emailController.text.trim();
+                final password = passwordController.text.trim();
+
+                if (email.isEmpty || password.isEmpty) {
+                  Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
+                  return;
+                }
+
+                try {
+                  await authController.login(email, password);
+                  Get.offAll(() => MainScreen());
+                } catch (e) {
+                  authController.isLoading.value = false;
+                  Get.snackbar('فشل تسجيل الدخول', e.toString(),
+                      snackPosition: SnackPosition.BOTTOM);
+                }
+              },
+              child: Text(
+                'تسجيل الدخول',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            );
           }),
+
           const SizedBox(
             height: 16,
           ),
@@ -105,10 +119,7 @@ class _SigninState extends State<Signin> {
                 ),
               ),
               Text('او يمكنك التسجيل عبر',
-                  style: GoogleFonts.almarai(
-                      color: AppColors.darkGrey,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400)),
+                  style: Theme.of(context).textTheme.labelSmall),
               const SizedBox(
                 width: 95,
                 child: Divider(
@@ -162,7 +173,7 @@ class _SigninState extends State<Signin> {
                   style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: AppColors.primary),
+                      color: Color(0xFF4ECDC4)),
                 ),
               )
             ],
@@ -170,22 +181,5 @@ class _SigninState extends State<Signin> {
         ],
       ),
     );
-  }
-
-  void SignInButton() async {
-    final email = emailController.text.trim();
-    final password = passwordController.text.trim();
-    if (email.isEmpty || password.isEmpty) {
-      Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
-      return;
-    }
-    try {
-      await authController.login(email, password);
-      Get.offAll(() => const MainScreen());
-    } catch (e) {
-      authController.isLoading.value = false;
-      Get.snackbar('فشل تسجيل الدخول', e.toString(),
-          snackPosition: SnackPosition.BOTTOM);
-    }
   }
 }

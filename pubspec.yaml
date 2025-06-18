@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dio: ^5.8.0+1
+  dio:
   get:
   google_fonts:
   flutter_svg:
@@ -40,10 +40,8 @@ dependencies:
   google_maps_flutter:
   flutter_rating_bar:
   share_plus: ^11.0.0
-  dotted_border: ^3.0.1
-  table_calendar: 
-  flutter_localization: ^0.3.2
-  jwt_decoder: ^2.0.1
+  shared_preferences: ^2.3.3
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
@@ -65,13 +63,6 @@ flutter:
   assets:
     - assets/
     - assets/icons/
-    - assets/intro/
-    - assets/sign/
-    - assets/currentorder/
-    - assets/previouswork/
-    - assets/worker/
-    - assets/Alert/
-    - assets/user/
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

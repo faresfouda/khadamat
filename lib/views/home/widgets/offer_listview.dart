@@ -12,7 +12,7 @@ class OfferListview extends StatelessWidget {
       child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
-          itemCount: services.length,
+          itemCount: offers.length,
           itemBuilder: (context, index) {
             return OfferCard(
               service: offers[index]['service']!,

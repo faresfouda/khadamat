@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:khadamat/theme/apptheme.dart';
 
-class Customlogintextfield extends StatelessWidget {
-  const Customlogintextfield({
+class CustomSigntextfield extends StatelessWidget {
+  const CustomSigntextfield({
     super.key,
     required this.textfield_title,
     required this.hint_text,
-    required this.backicon,
+    required this.field_icon,
     required this.obscureText,
-    required this.color, required this.controller,
+    this.controller,
   });
   final String textfield_title;
   final String hint_text;
-  final IconButton? backicon;
-  final Color color;
-  final TextEditingController controller;
-
+  final IconButton? field_icon;
   final bool obscureText;
+  final TextEditingController? controller;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,12 +22,9 @@ class Customlogintextfield extends StatelessWidget {
         Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: 8),
+              padding: const EdgeInsets.only(right: 16),
               child: Text(textfield_title,
-                  style: GoogleFonts.almarai(
-                      color: AppColors.blackcolor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400)),
+                  style: Theme.of(context).textTheme.titleMedium),
             ),
           ],
         ),
@@ -38,26 +32,25 @@ class Customlogintextfield extends StatelessWidget {
           height: 8,
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 8, left: 8),
+          padding: const EdgeInsets.only(right: 16, left: 16),
           child: TextFormField(
               obscureText: obscureText,
               obscuringCharacter: '*',
               decoration: InputDecoration(
-                suffixIcon: backicon,
+                suffixIcon: field_icon,
                 filled: true,
-                fillColor: color,
+                fillColor: Colors.white,
                 hintText: hint_text,
-                hintStyle: GoogleFonts.almarai(
-                    color: const Color(0xFF969696),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400),
+                hintStyle: Theme.of(context).textTheme.labelSmall,
                 focusedBorder: OutlineInputBorder(
                     borderSide: const BorderSide(color: Color(0xFFDFDFDF)),
                     borderRadius: BorderRadius.circular(16)),
                 enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(color: Color(0xFFDFDFDF)),
                     borderRadius: BorderRadius.circular(16)),
-              )),
+              ),
+              controller: controller,
+          ),
         ),
         const SizedBox(
           height: 8,
