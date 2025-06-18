@@ -4,13 +4,29 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/CustomtextField.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
+import 'package:khadamat/controllers/AuthController.dart';
 import 'package:khadamat/theme/apptheme.dart';
 import 'package:khadamat/views/home/mainscreen.dart';
 
-class Signin extends StatelessWidget {
-  Signin({super.key});
+class Signin extends StatefulWidget {
+  const Signin({super.key});
+  @override
+  State<Signin> createState() => _SigninState();
+}
+
+class _SigninState extends State<Signin> {
   final Getencryptedpassword getencryptedpassword =
       Get.put(Getencryptedpassword(), permanent: false);
+  AuthController authController = Get.find<AuthController>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SignView(
@@ -20,11 +36,12 @@ class Signin extends StatelessWidget {
       Child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const Customtextfield(
+          Customtextfield(
             textfield_title: 'البريد الالكتروني او رقم الهاتف',
             hint_text: 'ادخل البريد الالكتروني او رقم الهاتف',
-            backicon: null,
             obscureText: false,
+            controller: emailController,
+            backicon: null,
             color: Colors.transparent,
           ),
           Obx(
@@ -36,13 +53,11 @@ class Signin extends StatelessWidget {
                   getencryptedpassword.secure();
                 },
                 icon: getencryptedpassword.obscureText.value
-                    ? const Icon(
-                        Icons.visibility_off,
-                        color: AppColors.darkGrey,
-                      )
-                    : const Icon(Icons.visibility, color: AppColors.darkGrey),
+                    ? const Icon(Icons.visibility_off)
+                    : const Icon(Icons.visibility),
               ),
               obscureText: getencryptedpassword.obscureText.value,
+              controller: passwordController,
               color: Colors.transparent,
             ),
           ),
@@ -65,13 +80,16 @@ class Signin extends StatelessWidget {
               ),
             ],
           ),
-          FilledButton(
-              onPressed: () {
-                Get.off(const MainScreen());
-              },
-              child: const Text(
-                'تسجيل الدخول',
-              )),
+          Obx(() {
+            return authController.isLoading.value
+                ? const Center(child: CircularProgressIndicator())
+                : FilledButton(
+                    onPressed: SignInButton,
+                    child: const Text(
+                      'تسجيل الدخول',
+                    ),
+                  );
+          }),
           const SizedBox(
             height: 16,
           ),
@@ -81,7 +99,6 @@ class Signin extends StatelessWidget {
               const SizedBox(
                 width: 95,
                 child: Divider(
-                  color: AppColors.darkGrey,
                   endIndent: 5,
                 ),
               ),
@@ -93,7 +110,6 @@ class Signin extends StatelessWidget {
               const SizedBox(
                 width: 95,
                 child: Divider(
-                  color: AppColors.darkGrey,
                   indent: 5,
                 ),
               ),
@@ -128,20 +144,20 @@ class Signin extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'ليس لديك حساب؟ ',
-                style: GoogleFonts.almarai(
+                style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
-                    color: AppColors.blackcolor),
+                    color: Colors.black),
               ),
               TextButton(
                 onPressed: () {
                   Get.toNamed('signup');
                 },
-                child: Text(
+                child: const Text(
                   ' أنشئ حساب جديد',
-                  style: GoogleFonts.almarai(
+                  style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: AppColors.primary),
@@ -153,4 +169,24 @@ class Signin extends StatelessWidget {
       ),
     );
   }
+
+  void SignInButton() async {
+            final email = emailController.text.trim();
+            final password = passwordController.text.trim();
+  
+            if (email.isEmpty || password.isEmpty) {
+              Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
+              return;
+            }
+  
+            try {
+              await authController.login(email, password);
+              Get.offAll(() => const MainScreen());
+            } catch (e) {
+              authController.isLoading.value = false;
+              Get.snackbar('فشل تسجيل الدخول', e.toString(),
+                  snackPosition: SnackPosition.BOTTOM);
+            }
+          }
 }
+

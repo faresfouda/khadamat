@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/theme/apptheme.dart';
 
-class Customtextfield extends StatelessWidget {
-  const Customtextfield({
+class Customlogintextfield extends StatelessWidget {
+  const Customlogintextfield({
     super.key,
     required this.textfield_title,
     required this.hint_text,
@@ -16,6 +16,7 @@ class Customtextfield extends StatelessWidget {
   final IconButton? backicon;
   final Color color;
   final TextEditingController controller;
+
   final bool obscureText;
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,6 @@ class Customtextfield extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(right: 8, left: 8),
           child: TextFormField(
-            controller: controller,
               obscureText: obscureText,
               obscuringCharacter: '*',
               decoration: InputDecoration(

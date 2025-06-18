@@ -59,11 +59,11 @@ class TextmMssage extends StatelessWidget {
                                 const SizedBox(
                                   height: 8,
                                 ),
-                                const Customtextfield(
+                                 Customtextfield(
                                   textfield_title: 'العنوان',
                                   hint_text: 'اكتب عنوان مشكلتك',
                                   backicon: null,
-                                  obscureText: false, color: Colors.transparent,
+                                  obscureText: false, color: Colors.transparent,controller: TextEditingController(),
                                 ),
                                 const SizedBox(
                                   height: 26,

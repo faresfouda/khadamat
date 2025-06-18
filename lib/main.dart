@@ -8,7 +8,6 @@ import 'package:khadamat/views/workermap.dart';
 import 'package:khadamat/views/Intro_Screen.dart';
 import 'package:khadamat/views/SignIn.dart';
 import 'package:khadamat/views/SignUp.dart';
-import 'package:khadamat/views/workerprofile/WorkerProfile.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
