@@ -24,8 +24,8 @@ class _MyOrdersState extends State<MyOrders> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-              padding: const EdgeInsets.only(
+          const Padding(
+              padding: EdgeInsets.only(
                   top: 50, bottom: 12, right: 20, left: 20),
               child: SearchButton()
           ),

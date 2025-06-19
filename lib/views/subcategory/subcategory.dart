@@ -27,10 +27,10 @@ class _SubcategoryScreenState extends State<SubcategoryScreen> {
     print('subcategory screen categoryId: ${widget.categoryId}');
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(color: Color(0xFF5C5C5C),),
+        leading: const Back_Button(color: Color(0xFF5C5C5C),),
         title: Text(
-          '${widget.serviceName}',
-          style: TextStyle(
+          widget.serviceName,
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Color(0xFF37928B),
@@ -40,7 +40,7 @@ class _SubcategoryScreenState extends State<SubcategoryScreen> {
         centerTitle: true,
       ),
       body: Obx((){
-        return categoryController.isLoading.value?Center(child: CircularProgressIndicator()):Column(
+        return categoryController.isLoading.value?const Center(child: CircularProgressIndicator()):Column(
           children: [
             Expanded(
               child: ListView.builder(

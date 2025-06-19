@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:khadamat/models/ChatPreviewModel.dart';
-import 'package:khadamat/models/chat_model.dart';
 import 'package:khadamat/views/chat/chat.dart';
 
 class ChatListItem extends StatelessWidget {

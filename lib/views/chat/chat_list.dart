@@ -10,7 +10,7 @@ import 'package:khadamat/views/chat/widgets/chat_search.dart';
 import 'package:khadamat/views/chat/widgets/empty_chat_container.dart';
 
 class ChatList extends StatefulWidget {
-  ChatList({super.key});
+  const ChatList({super.key});
 
   @override
   State<ChatList> createState() => _ChatListState();

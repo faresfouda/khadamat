@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/backButton.dart';
 import 'package:khadamat/theme/apptheme.dart';
-import 'package:khadamat/views/chat/chat.dart';
 import 'package:khadamat/views/generalview.dart';
 import 'package:khadamat/views/workerprofile/widget/contactcontainer.dart';
 import 'package:khadamat/views/workerprofile/widget/profileimage.dart';

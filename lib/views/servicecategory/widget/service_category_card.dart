@@ -10,7 +10,7 @@ class ServiceCategoryCard extends StatelessWidget{
   const ServiceCategoryCard({super.key, required this.index, required this.subCategory});
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 179,
       child: Column(
         children: [
@@ -18,16 +18,16 @@ class ServiceCategoryCard extends StatelessWidget{
             child: Container(
               height: 140,
               width: 190,
-              child: (subCategory.image_url == null)
-                  ? Image.asset('assets/service_cat_1.png', fit: BoxFit.cover)
-                  : Image.network(subCategory.image_url!, fit: BoxFit.cover),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: Color(0xFFE8E8E8),
+                  color: const Color(0xFFE8E8E8),
                   width: 1,
                 ),
               ),
+              child: (subCategory.image_url == null)
+                  ? Image.asset('assets/service_cat_1.png', fit: BoxFit.cover)
+                  : Image.network(subCategory.image_url!, fit: BoxFit.cover),
             ),
             onTap: (){
               Get.to(SubcategoryScreen(
@@ -36,12 +36,12 @@ class ServiceCategoryCard extends StatelessWidget{
               ));
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           Text(
             subCategory.name ?? 'غير متوفر',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,
               color: Color(0xFF666666),

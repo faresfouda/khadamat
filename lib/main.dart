@@ -8,8 +8,9 @@ import 'package:khadamat/views/workermap.dart';
 import 'package:khadamat/views/Intro_Screen.dart';
 import 'package:khadamat/views/SignIn.dart';
 import 'package:khadamat/views/SignUp.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MrFixApp());
 }
@@ -21,9 +22,17 @@ class MrFixApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ar'),
+      ],
       locale: const Locale('ar'),
-      theme: apptheme,
       initialBinding: MyBinding(),
+      theme: apptheme,
       initialRoute: '/init',
       getPages: [
         GetPage(name: '/', page: () => IntroScreen()),

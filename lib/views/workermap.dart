@@ -22,27 +22,27 @@ class Workermap extends StatelessWidget {
               padding: EdgeInsets.only(right: 12),
               child: Back_Button(color: AppColors.primary)),
         ),
-        body: Stack(
+        body: const Stack(
           alignment: Alignment.center,
           children: [
-            const GoogleMap(
+            GoogleMap(
                 zoomControlsEnabled: false,
                 initialCameraPosition: CameraPosition(target: LatLng(36, 36))),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(12),
+                  padding: EdgeInsets.all(12),
                   child: SearchButton(
                     // ontap: () {
                     //   Get.to(const Workerssearch());
                     // },
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
-                const WorkersListView()
+                WorkersListView()
               ],
             ),
           ],

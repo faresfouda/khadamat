@@ -26,10 +26,10 @@ class _ServiceCategoryScreenState extends State<ServiceCategoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(color: Color(0xFF5C5C5C),),
+        leading: const Back_Button(color: Color(0xFF5C5C5C),),
         title: Text(
-          '${widget.serviceName}',
-          style: TextStyle(
+          widget.serviceName,
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Color(0xFF37928B),
@@ -44,11 +44,11 @@ class _ServiceCategoryScreenState extends State<ServiceCategoryScreen> {
             child: Obx(() {
               final subCategories = categoryController.subCategories;
               if (subCategories.isEmpty) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
               return GridView.builder(
                 itemCount: subCategories.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 0,
                   childAspectRatio: 1,

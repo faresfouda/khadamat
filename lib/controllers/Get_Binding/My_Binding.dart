@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:khadamat/controllers/AuthController.dart';
 import 'package:khadamat/controllers/DateController.dart';
 import 'package:khadamat/controllers/Get_intro.dart';
 import 'package:khadamat/controllers/RadioController.dart';
@@ -19,11 +18,18 @@ class MyBinding extends Bindings {
     Get.put(GetIntro());
     Get.put<ApiConsumer>(DioConsumer(dio: Dio()));
     // Get.put(AuthController(authService: auth_service(apiConsumer: Get.find())),);
-    Get.put(AuthController_1(authService: auth_service(apiConsumer: Get.find())),);
-    Get.put(UserController(userService: user_service(apiConsumer: Get.find())),);
-    Get.put(CategoryController(CategoryService: category_service(apiConsumer: Get.find()),),);
+    Get.put(
+      AuthController(authService: auth_service(apiConsumer: Get.find())),
+    );
+    Get.put(
+      UserController(userService: user_service(apiConsumer: Get.find())),
+    );
+    Get.put(
+      CategoryController(
+        CategoryService: category_service(apiConsumer: Get.find()),
+      ),
+    );
     Get.put(Datecontroller());
     Get.put(Radiocontroller());
   }
-
 }

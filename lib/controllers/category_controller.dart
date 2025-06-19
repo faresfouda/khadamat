@@ -16,7 +16,6 @@ class CategoryController extends GetxController {
   Future<void> LoadTopLevelCategory()async{
     isLoading.value =true;
     final response = await CategoryService.GetTopLevelCategory();
-
     if (response['success'] == true) {
       final List<dynamic> dataList = response['data'];
       categories.value = dataList.map((e) => TopLevelCategory.fromJson(e)).toList();

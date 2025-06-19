@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:khadamat/controllers/category_controller.dart';
-import 'package:khadamat/models/top_level_category.dart';
 import 'package:khadamat/views/home/widgets/services_card.dart';
 
 class CategoryListview extends StatelessWidget {

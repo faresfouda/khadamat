@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:khadamat/views/home/widgets/offer_card.dart';
-import 'package:khadamat/views/home/widgets/services_card.dart';
 
 class OfferListview extends StatelessWidget {
   const OfferListview({super.key});

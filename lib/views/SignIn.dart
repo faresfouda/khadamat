@@ -4,20 +4,18 @@ import 'package:khadamat/components/customLoginTextField.dart';
 import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
 import 'package:khadamat/controllers/user_controller.dart';
-import 'package:khadamat/services/api/auth/auth_service.dart';
 import 'package:khadamat/views/home/mainscreen.dart';
 
 class Signin extends StatefulWidget {
-  Signin({super.key});
-
+  const Signin({super.key});
   @override
   State<Signin> createState() => _SigninState();
 }
 
 class _SigninState extends State<Signin> {
   final Getencryptedpassword getencryptedpassword =
-  Get.put(Getencryptedpassword(), permanent: false);
-  AuthController_1 authController = Get.find<AuthController_1>();
+      Get.put(Getencryptedpassword(), permanent: false);
+  AuthController authController = Get.find<AuthController>();
 
   final TextEditingController emailController = TextEditingController();
 
@@ -46,7 +44,7 @@ class _SigninState extends State<Signin> {
             controller: emailController,
           ),
           Obx(
-                () => CustomSigntextfield(
+            () => CustomSigntextfield(
               textfield_title: 'كلمة المرور',
               hint_text: 'أدخل كلمة المرور',
               field_icon: IconButton(
@@ -81,31 +79,30 @@ class _SigninState extends State<Signin> {
             return authController.isLoading.value
                 ? const Center(child: CircularProgressIndicator())
                 : FilledButton(
-              onPressed: () async {
-                final email = emailController.text.trim();
-                final password = passwordController.text.trim();
+                    onPressed: () async {
+                      final email = emailController.text.trim();
+                      final password = passwordController.text.trim();
 
-                if (email.isEmpty || password.isEmpty) {
-                  Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
-                  return;
-                }
+                      if (email.isEmpty || password.isEmpty) {
+                        Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
+                        return;
+                      }
 
-                try {
-                  await authController.login(email, password);
-                  Get.offAll(() => MainScreen());
-                } catch (e) {
-                  authController.isLoading.value = false;
-                  Get.snackbar('فشل تسجيل الدخول', e.toString(),
-                      snackPosition: SnackPosition.BOTTOM);
-                }
-              },
-              child: Text(
-                'تسجيل الدخول',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-            );
+                      try {
+                        await authController.login(email, password);
+                        Get.offAll(() => const MainScreen());
+                      } catch (e) {
+                        authController.isLoading.value = false;
+                        Get.snackbar('فشل تسجيل الدخول', e.toString(),
+                            snackPosition: SnackPosition.BOTTOM);
+                      }
+                    },
+                    child: Text(
+                      'تسجيل الدخول',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  );
           }),
-
           const SizedBox(
             height: 16,
           ),

@@ -1,8 +1,8 @@
 import 'package:khadamat/services/api/end_point.dart';
 
 class ErrorModel {
-  final String message;
-  final int? code;
+  final bool message;
+  final String? code;
 
   ErrorModel({required this.message, this.code});
 

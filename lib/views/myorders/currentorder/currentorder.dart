@@ -4,20 +4,21 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/controllers/AuthController.dart';
 import 'package:khadamat/controllers/user_controller.dart';
 import 'package:khadamat/services/api/end_point.dart';
+import 'package:khadamat/views/myorders/currentorder/my_current_order.dart';
 
 class Currentorder extends StatefulWidget {
-  Currentorder({super.key});
+  const Currentorder({super.key});
 
   @override
   State<Currentorder> createState() => _CurrentorderState();
 }
 
 class _CurrentorderState extends State<Currentorder> {
-  final AuthController_1 authController = Get.find<AuthController_1>();
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AuthController_1>(builder: (controller) {
+    return GetBuilder<AuthController>(builder: (controller) {
       const String image = 'assets/currentorder/order.png';
       return FutureBuilder(
           future: controller.Currentorder(),
@@ -38,15 +39,22 @@ class _CurrentorderState extends State<Currentorder> {
                           padding: const EdgeInsets.all(8),
                           itemCount: controller.MyCurrentOrder.length,
                           itemBuilder: (context, i) {
-                            var orderdetails = controller.MyCurrentOrder;
+                            var orderdetails = controller.MyCurrentOrder[i];
                             return Padding(
                                 padding: const EdgeInsets.only(
                                     left: 16, right: 16, top: 16, bottom: 16),
                                 child: InkWell(
                                   onTap: () {
-                                    // Get.to(MyCurrentOrder(
-                                    //     date: orderdetails['الزمن'],
-                                    //     orderadress: orderid));
+                                    Get.to(MyCurrentOrder(
+                                      orderid: orderdetails[ApiKey.id],
+                                      orderCategory:
+                                          orderdetails[ApiKey.service]
+                                              [ApiKey.category][ApiKey.name],
+                                      orderAdress: orderdetails[ApiKey.service]
+                                          [ApiKey.name],
+                                      orderDetails:
+                                          orderdetails[ApiKey.description], date: orderdetails[ApiKey.scheduled_at],
+                                    ));
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -91,7 +99,7 @@ class _CurrentorderState extends State<Currentorder> {
                                                     height: 8,
                                                   ),
                                                   Text(
-                                                      orderdetails[i]
+                                                      orderdetails
                                                               [ApiKey.service]
                                                           [ApiKey.name],
                                                       style:
@@ -118,7 +126,7 @@ class _CurrentorderState extends State<Currentorder> {
                                                     height: 5,
                                                   ),
                                                   Text(
-                                                      orderdetails[i]
+                                                      orderdetails
                                                           [ApiKey.scheduled_at],
                                                       style:
                                                           GoogleFonts.tajawal(

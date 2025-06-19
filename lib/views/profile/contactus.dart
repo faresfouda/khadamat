@@ -10,13 +10,13 @@ class ContactUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final service = 'تواصل معنا';
+    const service = 'تواصل معنا';
     return Scaffold(
       appBar: AppBar(
-        leading: Back_Button(color: Color(0xFF37928B),),
+        leading: const Back_Button(color: Color(0xFF37928B),),
         title: Text(
-          '${service}',
-          style: TextStyle(
+          service,
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Color(0xFF37928B),
@@ -34,12 +34,12 @@ class ContactUs extends StatelessWidget {
              // Get.to(() => ChatScreen());
             },
           ),
-          SizedBox(height: 16,),
+          const SizedBox(height: 16,),
           ContactUsButton(
             iconPath: 'assets/icons/Mail.svg',
             text: 'ارسال رساله نصيه',
             onTap: () {
-              Get.to(() => TextmMssage());
+              Get.to(() => const TextmMssage());
             },
           ),
         ],

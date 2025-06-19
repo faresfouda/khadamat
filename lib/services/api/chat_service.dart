@@ -10,7 +10,7 @@ class ChatService {
     required String token,
   }) async {
     final response = await apiConsumer.get(
-      '${EndPoint.chatConversation}',
+      EndPoint.chatConversation,
       headers: {
         'Authorization': 'Bearer $token',
       },
@@ -46,7 +46,7 @@ class ChatService {
     required String message,
   }) async {
     final response = await apiConsumer.post(
-      '${EndPoint.send_message}',
+      EndPoint.send_message,
       body: {
         'receiver_id': otherUserId,
         'order_id': orderId,

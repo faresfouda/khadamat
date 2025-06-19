@@ -34,7 +34,7 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         title: Text(
           widget.otherUserName,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -42,14 +42,14 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         toolbarHeight: 100,
         centerTitle: true,
-        backgroundColor: Color(0xFF37928B),
-        leading: Back_Button(color: Colors.white,),
+        backgroundColor: const Color(0xFF37928B),
+        leading: const Back_Button(color: Colors.white,),
       ),
       body: Column(
         children: [
           Expanded(
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
               ),
@@ -60,7 +60,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   padding: const EdgeInsets.only(right: 16, left: 16, top: 8),
                   child: Obx(() {
                     if (controller.isLoading.value) {
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     }
 
                     return ListView.builder(
@@ -95,24 +95,24 @@ class _ChatScreenState extends State<ChatScreen> {
                           onPressed: () {},
                           icon: SvgPicture.asset(
                             'assets/camera.svg',
-                            color: Color(0xFF37928B),
+                            color: const Color(0xFF37928B),
                           ),
                         ),
                         hintText: 'اكتب هنا',
                         filled: true,
-                        fillColor: Color(0xFFEDFAF9),
+                        fillColor: const Color(0xFFEDFAF9),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide.none,
                         ),
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                       ),
                     ),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFF37928B),
+                      color: const Color(0xFF37928B),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: IconButton(
@@ -139,7 +139,7 @@ class _ChatScreenState extends State<ChatScreen> {
         ],
       ),
 
-      backgroundColor: Color(0xFF37928B),
+      backgroundColor: const Color(0xFF37928B),
     );
   }
 }

@@ -19,25 +19,27 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  AuthController_1 authController = Get.find<AuthController_1>();
+  AuthController authController = Get.find<AuthController>();
   UserController userController = Get.find<UserController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset('assets/worker/workerinfobackground.png',
-            fit:BoxFit.cover,
+          Image.asset(
+            'assets/worker/workerinfobackground.png',
+            fit: BoxFit.cover,
             width: double.infinity,
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 150, left: 16, right: 16, bottom: 11),
+            padding: const EdgeInsets.only(
+                top: 150, left: 16, right: 16, bottom: 11),
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(
-                  color: Color(0xFFE8E8E8),
+                  color: const Color(0xFFE8E8E8),
                   width: 1,
                 ),
                 borderRadius: BorderRadius.circular(10),
@@ -50,27 +52,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       CustomListTile(
                         title: 'الملف الشخصي',
                         ontap: () {
-                          Get.to(() => EditProfileScreen());
+                          Get.to(() => const EditProfileScreen());
                         },
                       ),
-                      CustomSwitchButton(),
+                      const CustomSwitchButton(),
                       CustomListTile(
                         title: 'سياسة الاستخدام',
                         ontap: () {
-                          Get.to(() => TermsOfUse());
+                          Get.to(() => const TermsOfUse());
                         },
                       ),
                       CustomListTile(
                         title: 'تواصل معنا',
                         ontap: () {
-                          Get.to(() => ContactUs());
+                          Get.to(() => const ContactUs());
                         },
                       ),
                       CustomTextButton(
                         title: 'مشاركة البرنامج',
                         color: Colors.black,
                         onTap: () {
-                          Share.share('قم بمشاركة التطبيق على أي من التطبيقات التالية ');
+                          Share.share(
+                              'قم بمشاركة التطبيق على أي من التطبيقات التالية ');
                         },
                       ),
                       // CustomTextButton(title: 'تغيير اللغة',color: Colors.black,),
@@ -91,8 +94,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           );
                         },
                       ),
-                      CustomTextButton(title: 'حذف الحساب',color: Colors.red,
-                        onTap:(){
+                      CustomTextButton(
+                        title: 'حذف الحساب',
+                        color: Colors.red,
+                        onTap: () {
                           CustomTextAlertDialogue(
                             context,
                             0xFFE83636,
@@ -104,7 +109,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             title: 'هل أنت متأكد من تسجيل الخروج ؟',
                             buttontext: 'حذف الحساب',
                           );
-                        } ,),
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -118,14 +124,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               alignment: Alignment.topCenter,
               child: Column(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 60,
                     backgroundImage: AssetImage('assets/profile_pic.png'),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Text(
                     userController.user.value?.name ?? 'مستخدم',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
                       color: Colors.black,
@@ -137,7 +143,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           )
         ],
       ),
-      backgroundColor: Color(0xFFFAFAFA),
+      backgroundColor: const Color(0xFFFAFAFA),
     );
   }
 }
