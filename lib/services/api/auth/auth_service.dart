@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:khadamat/services/api/api_consumer.dart';
 import 'package:khadamat/services/api/end_point.dart';

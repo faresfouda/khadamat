@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:khadamat/controllers/AuthController.dart';
-import 'package:khadamat/services/api/auth/auth_service.dart';
 import 'package:khadamat/theme/apptheme.dart';
 import 'package:khadamat/views/home/widgets/search_button.dart';
 import 'package:khadamat/views/myorders/currentorder/currentorder.dart';

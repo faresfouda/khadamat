@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:khadamat/models/OrderModel.dart';
 import 'package:khadamat/models/UserModel.dart';
 import 'package:khadamat/services/api/auth/auth_service.dart';

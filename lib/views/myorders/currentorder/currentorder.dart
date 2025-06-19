@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/controllers/AuthController.dart';
 import 'package:khadamat/services/api/end_point.dart';
