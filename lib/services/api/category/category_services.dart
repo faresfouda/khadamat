@@ -36,4 +36,14 @@ class category_service {
       throw Exception(response['message'] ?? 'failed to fetch category data');
     }
   }
+  Future<Map<String, dynamic>> GetServices(int categoryId) async {
+    final response = await apiConsumer.get(
+      '${EndPoint.Get_Services}/$categoryId',
+    );
+    if (response['success'] == true) {
+      return response;
+    } else {
+      throw Exception(response['message'] ?? 'failed to fetch services');
+    }
+  }
 }

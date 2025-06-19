@@ -30,6 +30,7 @@ class OfferCard extends StatelessWidget {
             children: [
               Text(
                 service,
+                overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.almarai(
                   fontSize: 14,
@@ -72,8 +73,3 @@ class OfferCard extends StatelessWidget {
   }
 }
 
-final offers = [
-  {'service': 'تركيب مصباح', 'price': '50'},
-  {'service': 'تركيب صنبور', 'price': '80'},
-  {'service': 'تركيب مصباح', 'price': '50'},
-];

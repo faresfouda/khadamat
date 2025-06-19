@@ -6,12 +6,14 @@ import 'package:khadamat/controllers/Get_intro.dart';
 import 'package:khadamat/controllers/RadioController.dart';
 import 'package:khadamat/controllers/category_controller.dart';
 import 'package:khadamat/controllers/home_controller.dart';
+import 'package:khadamat/controllers/image_controller.dart';
 import 'package:khadamat/controllers/user_controller.dart';
 import 'package:khadamat/services/api/api_consumer.dart';
 import 'package:khadamat/services/api/auth/auth_service.dart';
 import 'package:khadamat/services/api/category/category_services.dart';
 import 'package:khadamat/services/api/dio_consumer.dart';
 import 'package:khadamat/services/api/user_data/user_data.dart';
+import 'package:khadamat/services/image_upload.dart';
 
 class MyBinding extends Bindings {
   @override
@@ -24,6 +26,7 @@ class MyBinding extends Bindings {
     Get.put(CategoryController(CategoryService: category_service(apiConsumer: Get.find()),),);
     Get.put(Datecontroller());
     Get.put(Radiocontroller());
+    Get.put(ImageController(imageServices: ImageServices(apiConsumer: Get.find()),),);
   }
 
 }

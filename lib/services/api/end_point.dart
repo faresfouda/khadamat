@@ -10,6 +10,9 @@ class EndPoint {
   static const String Get_Conversation_By_Id = '${baseUrl}/api/v1/messages/conversation';
   static const String send_message = '${baseUrl}/api/v1/messages';
   static const String myOrder = '${baseUrl}/api/v1/orders/my-orders';
+  static const String Get_Offers = '${baseUrl}/api/v1/services';
+  static const String Get_Services = '${baseUrl}/api/v1/services';
+  static const String uploadImage = '${baseUrl}/api/v1/upload/single';
 }
 class ApiKey {
   static String name = 'name';

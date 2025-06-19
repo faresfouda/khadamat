@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     try {
       userController.Loadprofile();
+      userController.getoffers();
     } catch (e) {
       Get.snackbar("خطأ", "فشل في تحميل الملف الشخصي: $e",
           snackPosition: SnackPosition.BOTTOM);
