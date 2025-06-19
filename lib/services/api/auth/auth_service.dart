@@ -1,8 +1,7 @@
-import 'package:get/get.dart';
 import 'package:khadamat/services/api/api_consumer.dart';
 import 'package:khadamat/services/api/end_point.dart';
 
-class auth_service extends GetxController {
+class auth_service {
   final ApiConsumer apiConsumer;
 
   auth_service({required this.apiConsumer});
@@ -18,6 +17,7 @@ class auth_service extends GetxController {
         ApiKey.password: password,
       },
     );
+
     if (response['success'] == true) {
       return response;
     } else {
@@ -47,15 +47,21 @@ class auth_service extends GetxController {
     }
   }
 
-  Future<Map<String, dynamic>> getCurrentOrder({required String Token}) async {
-    final response = await apiConsumer.get(EndPoint.myOrder, headers: {
-      'Authorization': 'Bearer $Token',
-    });
+  Future<Map<String, dynamic>> getCurrentOrder({
+    required String token,
+  }) async {
+    final response = await apiConsumer.get(
+      '${EndPoint.myOrder}',
+      headers: {
+        'Authorization': 'Bearer $token',
+      },
+    );
 
     if (response['success'] == true) {
       return response;
     } else {
-      throw Exception(response['error'] ?? 'Register failed');
+      throw Exception(response['message'] ?? 'Failed to fetch conversation by ID');
     }
   }
+
 }

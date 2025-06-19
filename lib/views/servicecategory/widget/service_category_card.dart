@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:khadamat/models/subcategory_model.dart';
 import 'package:khadamat/views/subcategory/subcategory.dart';
 
-class ServiceCategoryCard extends StatelessWidget {
+class ServiceCategoryCard extends StatelessWidget{
   final int index;
+  final SubCategory subCategory;
 
-  const ServiceCategoryCard({super.key, required this.index});
+  const ServiceCategoryCard({super.key, required this.index, required this.subCategory});
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 179,
       child: Column(
         children: [
@@ -17,37 +18,40 @@ class ServiceCategoryCard extends StatelessWidget {
             child: Container(
               height: 140,
               width: 190,
+              child: (subCategory.image_url == null)
+                  ? Image.asset('assets/service_cat_1.png', fit: BoxFit.cover)
+                  : Image.network(subCategory.image_url!, fit: BoxFit.cover),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: const Color(0xFFE8E8E8),
+                  color: Color(0xFFE8E8E8),
                   width: 1,
                 ),
               ),
-              child: Image.asset(
-                'assets/${categories[index]['image']}',
-                fit: BoxFit.fill,
-              ),
             ),
-            onTap: () {
-              Get.to(const SubcategoryScreen());
+            onTap: (){
+              Get.to(SubcategoryScreen(
+                categoryId: subCategory.id,
+                serviceName: subCategory.name ?? 'الخدمة',
+              ));
             },
           ),
-          const SizedBox(
+          SizedBox(
             height: 12,
           ),
           Text(
-            categories[index]['category'],
-            style: GoogleFonts.tajawal(
+            subCategory.name ?? 'غير متوفر',
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,
-              color: const Color(0xFF666666),
+              color: Color(0xFF666666),
             ),
           ),
         ],
       ),
     );
   }
+
 }
 
 List categories = [

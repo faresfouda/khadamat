@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/customtextalertdialogue.dart';
+import 'package:khadamat/controllers/home_controller.dart';
+import 'package:khadamat/controllers/user_controller.dart';
 import 'package:khadamat/views/profile/contactus.dart';
 import 'package:khadamat/views/profile/editprofile.dart';
 import 'package:khadamat/views/profile/termsofuse.dart';
@@ -18,25 +19,25 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  AuthController_1 authController = Get.find<AuthController_1>();
+  UserController userController = Get.find<UserController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            'assets/worker/workerinfobackground.png',
-            fit: BoxFit.cover,
+          Image.asset('assets/worker/workerinfobackground.png',
+            fit:BoxFit.cover,
             width: double.infinity,
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                top: 150, left: 16, right: 16, bottom: 11),
+            padding: const EdgeInsets.only(top: 150, left: 16, right: 16, bottom: 11),
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(
-                  color: const Color(0xFFE8E8E8),
+                  color: Color(0xFFE8E8E8),
                   width: 1,
                 ),
                 borderRadius: BorderRadius.circular(10),
@@ -49,28 +50,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       CustomListTile(
                         title: 'الملف الشخصي',
                         ontap: () {
-                          Get.to(() => const EditProfileScreen());
+                          Get.to(() => EditProfileScreen());
                         },
                       ),
-                      const CustomSwitchButton(),
+                      CustomSwitchButton(),
                       CustomListTile(
                         title: 'سياسة الاستخدام',
                         ontap: () {
-                          Get.to(() => const TermsOfUse());
+                          Get.to(() => TermsOfUse());
                         },
                       ),
                       CustomListTile(
                         title: 'تواصل معنا',
                         ontap: () {
-                          Get.to(() => const ContactUs());
+                          Get.to(() => ContactUs());
                         },
                       ),
                       CustomTextButton(
                         title: 'مشاركة البرنامج',
                         color: Colors.black,
                         onTap: () {
-                          Share.share(
-                              'قم بمشاركة التطبيق على أي من التطبيقات التالية ');
+                          Share.share('قم بمشاركة التطبيق على أي من التطبيقات التالية ');
                         },
                       ),
                       // CustomTextButton(title: 'تغيير اللغة',color: Colors.black,),
@@ -82,24 +82,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             context,
                             0xFF37928B,
                             0xFF37928B,
+                            () {
+                              authController.logout();
+                              Get.offAllNamed('signin');
+                            },
                             title: 'هل أنت متأكد من تسجيل الخروج ؟',
                             buttontext: 'تسجيل الخروج',
                           );
                         },
                       ),
-                      CustomTextButton(
-                        title: 'حذف الحساب',
-                        color: Colors.red,
-                        onTap: () {
+                      CustomTextButton(title: 'حذف الحساب',color: Colors.red,
+                        onTap:(){
                           CustomTextAlertDialogue(
                             context,
                             0xFFE83636,
                             0xFFE83636,
+                            () {
+                              authController.logout();
+                              Get.offAllNamed('signin');
+                            },
                             title: 'هل أنت متأكد من تسجيل الخروج ؟',
                             buttontext: 'حذف الحساب',
                           );
-                        },
-                      ),
+                        } ,),
                     ],
                   ),
                 ),
@@ -113,14 +118,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               alignment: Alignment.topCenter,
               child: Column(
                 children: [
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 60,
-                    backgroundImage: AssetImage('assets/user/userprofile.png'),
+                    backgroundImage: AssetImage('assets/profile_pic.png'),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                   Text(
-                    'احمد صلاح الدين',
-                    style: GoogleFonts.tajawal(
+                    userController.user.value?.name ?? 'مستخدم',
+                    style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
                       color: Colors.black,
@@ -132,7 +137,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           )
         ],
       ),
-      backgroundColor: const Color(0xFFFAFAFA),
+      backgroundColor: Color(0xFFFAFAFA),
     );
   }
 }

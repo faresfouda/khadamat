@@ -1,59 +1,56 @@
 class Ordermodel {
   int? id;
-  int? user_id;
-  int? service_id;
-  int? fixer_id;
+  int? userId;
+  int? serviceId;
+  int? fixerId;
   String? status;
-  String? scheduled_atle;
+  String? scheduledAt;
   String? location;
   String? description;
-  String? created_at;
-  String? updated_at;
-  String? before_images;
-  String? after_images;
-  String? problem_images;
+  String? createdAt;
+  String? updatedAt;
+  String? beforeImages;
+  String? afterImages;
+  String? problemImages;
   String? fixer;
-  String? service;
-  String? name;
-  String? category;
+  String? serviceName;
+  String? categoryName;
   Ordermodel({
     this.id,
-    this.user_id,
-    this.service_id,
-    this.fixer_id,
+    this.userId,
+    this.serviceId,
+    this.fixerId,
     this.status,
-    this.scheduled_atle,
+    this.scheduledAt,
     this.location,
     this.description,
-    this.created_at,
-    this.updated_at,
-    this.before_images,
-    this.after_images,
-    this.problem_images,
+    this.createdAt,
+    this.updatedAt,
+    this.beforeImages,
+    this.afterImages,
+    this.problemImages,
     this.fixer,
-    this.service,
-    this.name,
-    this.category,
+    this.serviceName,
+    this.categoryName,
   });
   factory Ordermodel.fromjson(Map<String, dynamic> json) {
     return Ordermodel(
       id: json['id'],
-      user_id: json['user_id'],
-      service_id: json['service_id'],
-      fixer_id: json['fixer_id'],
+      userId: json['user_id'],
+      serviceId: json['service_id'],
+      fixerId: json['fixer_id'],
       status: json['status'],
-      scheduled_atle: json['scheduled_atle'],
+      scheduledAt: json['scheduled_at'],
       location: json['location'],
       description: json['description'],
-      created_at: json['created_at'],
-      updated_at: json['updated_at'],
-      before_images: json['before_images'],
-      after_images: json['after_images'],
-      problem_images: json['problem_images'],
-      fixer: json['fixer'],
-      service: json['service'],
-      name: json['name'],
-      category: json['category'],
+      createdAt: json['created_at'],
+      updatedAt: json['updated_at'],
+      beforeImages: json['before_images'],
+      afterImages: json['after_images'],
+      problemImages: json['problem_images'],
+      fixer: json['fixer']?.toString(),
+      serviceName: json['service']?['name'],
+      categoryName: json['service']?['category']?['name'],
     );
   }
 }
