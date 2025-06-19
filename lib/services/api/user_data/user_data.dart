@@ -22,4 +22,14 @@ class user_service {
       throw Exception(response['message'] ?? 'failed to fetch user data');
     }
   }
+  Future<Map<String, dynamic>> GetOffers() async {
+    final response = await apiConsumer.get(
+      '${EndPoint.Get_Offers}',
+    );
+    if (response['success'] == true) {
+      return response;
+    } else {
+      throw Exception(response['message'] ?? 'failed to fetch category offers');
+    }
+  }
 }

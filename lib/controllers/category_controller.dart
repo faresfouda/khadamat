@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:khadamat/models/category_model.dart';
+import 'package:khadamat/models/service_model.dart';
 import 'package:khadamat/models/subcategory_model.dart';
 import 'package:khadamat/models/top_level_category.dart';
 import 'package:khadamat/services/api/category/category_services.dart';
@@ -13,6 +14,7 @@ class CategoryController extends GetxController {
   var categories = <TopLevelCategory>[].obs;
   var subCategories = <SubCategory>[].obs;
   var categoryById = <CategoryModel>[].obs;
+  var service = Rxn<ServiceModel>();
   Future<void> LoadTopLevelCategory()async{
     isLoading.value =true;
     final response = await CategoryService.GetTopLevelCategory();
@@ -49,6 +51,18 @@ class CategoryController extends GetxController {
     } else {
       isLoading.value = false;
       throw Exception(response['message'] ?? 'failed to fetch category data');
+    }
+  }
+  Future<void> LoadServices(int categoryId) async {
+    isLoading.value = true;
+    final response = await CategoryService.GetServices(categoryId);
+    if (response['success']== true){
+      isLoading.value = false;
+      service.value = ServiceModel.fromJson(response['data']);
+    }
+    else {
+      isLoading.value = false;
+      throw Exception(response['message'] ?? 'failed to fetch services');
     }
   }
 }

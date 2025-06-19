@@ -79,7 +79,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     color: const Color(0xFF37928B)),
               ),
             ),
-            const SearchTags(),
+             SearchTags(),
           ],
         ),
       ),

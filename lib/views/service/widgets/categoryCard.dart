@@ -34,7 +34,7 @@ class CategoryCard extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Get.to(const AboutService());
+              // Get.to(const AboutService());
             },
           ),
           const SizedBox(

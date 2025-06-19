@@ -86,7 +86,6 @@ class auth_service {
       if (response[ApiKey.success] == true) {
         return response;
       } else {
-        print(Exception(response[ApiKey.error] ?? 'Error'));
         throw Exception(response[ApiKey.error] ?? 'Error');
       }
     } on Exception catch (e) {

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/customalertdialogue.dart';
 import 'package:khadamat/components/elevatedButton.dart';
+import 'package:khadamat/controllers/image_controller.dart';
+import 'package:khadamat/services/image_upload.dart';
 import 'package:khadamat/views/profile/widgets/customtextfield.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -15,6 +18,7 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
   final _formKey = GlobalKey<FormState>();
   var isReadOnly = true;
+  final ImageController imageController = Get.find<ImageController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,10 +74,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               alignment: Alignment.topCenter,
               child: Column(
                 children: [
-                  const CircleAvatar(
-                    radius: 60,
-                    backgroundImage: AssetImage('assets/profile_pic.png'),
+                   GestureDetector(
+                     onTap: () async {
+                       if (isReadOnly) return;
+                       final pickedFile = await pickImage(); // ✅ Function, not class
+                       if (pickedFile != null) {
+                         await imageController.uploadImage(pickedFile.path);
+                       }
+                     },
+
+                     child: const CircleAvatar(
+                      radius: 60,
+                      backgroundImage: AssetImage('assets/profile_pic.png'),
+                      // For dynamic image: use NetworkImage or FileImage
+                    ),
                   ),
+
                   const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -31,7 +31,8 @@ class SubcategoryCard extends StatelessWidget{
             ),
           ),
           onTap: (){
-            Get.to(const AboutService());
+            Get.to( () => AboutService(categoryId: category.id?? 0),
+            );
           },
         ),
         const SizedBox(
