@@ -44,10 +44,10 @@ class MrFixApp extends StatelessWidget {
           name: '/signup',
           page: () => SignUp(),
         ),
-        GetPage(
-          name: '/workermap',
-          page: () => const Workermap(),
-        ),
+        // GetPage(
+        //   name: '/workermap',
+        //   page: () => const Workermap(),
+        // ),
         GetPage(
           name: '/search',
           page: () => const SearchScreen(),

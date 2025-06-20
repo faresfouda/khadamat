@@ -73,7 +73,7 @@ class _AboutServiceState extends State<AboutService> {
           ],
         ),
         floatingActionButton: Padding(
-          padding: const EdgeInsets.only(bottom: 30.0, right: 24, left: 24),
+          padding:  EdgeInsets.only(bottom: 30.0, right: 24, left: 24),
           child: SizedBox(
             width: double.infinity,
             height: 56,
@@ -82,7 +82,9 @@ class _AboutServiceState extends State<AboutService> {
               fontsize: 20,
               radius: 16,
               onpressed: () {
-                Get.to(const Workermap());
+                Get.to( Workermap(
+                  service_id: categoryController.service.value?.id ?? 0,
+                ));
               },
             ),
           ),

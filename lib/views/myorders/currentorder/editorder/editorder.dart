@@ -5,13 +5,14 @@ import 'package:get/state_manager.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/backButton.dart';
+import 'package:khadamat/controllers/order_controller.dart';
 import 'package:khadamat/controllers/user_controller.dart';
 import 'package:khadamat/services/api/end_point.dart';
 import 'package:khadamat/theme/apptheme.dart';
 
 class Editorder extends StatelessWidget {
   Editorder({super.key, required this.orderid});
-  final AuthController controller = Get.find<AuthController>();
+  final OrderController controller = Get.find<OrderController>();
   Map<String, String> editing = {
     'فئة الطلب ': 'أجهزة كهربائية',
     'عنوان الطلب ': 'عنوان الطلب ',
@@ -105,7 +106,7 @@ class Editorder extends StatelessWidget {
                     height: 8,
                   ),
                   EditOrderTextField(
-                    hinttext: order[0][ApiKey.service][ApiKey.name],
+                    hinttext: order[0]['location'],
                     controller: orderAdress,
                     title: 'عنوان الطلب',
                   ),
@@ -134,27 +135,27 @@ class Editorder extends StatelessWidget {
                       onPressed: () {
                         controller.updateOrder(orderid, orderCategory.text,
                             orderAdress.text, orderDetails.text);
-                        // showDialog(
-                        //     context: context,
-                        //     builder: (context) {
-                        //       return AlertDialog(
-                        //         backgroundColor: Colors.white,
-                        //         title: Column(
-                        //           children: [
-                        //             const Image(
-                        //                 image:
-                        //                     AssetImage('assets/Done.png')),
-                        //             Text(
-                        //               'تم تعديل الطلب بنجاح',
-                        //               style: GoogleFonts.tajawal(
-                        //                   color: const Color(0xFF37928B),
-                        //                   fontSize: 16,
-                        //                   fontWeight: FontWeight.w700),
-                        //             )
-                        //           ],
-                        //         ),
-                        //       );
-                        //     });
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                backgroundColor: Colors.white,
+                                title: Column(
+                                  children: [
+                                    const Image(
+                                        image:
+                                            AssetImage('assets/Alert/Done.png')),
+                                    Text(
+                                      'تم تعديل الطلب بنجاح',
+                                      style: GoogleFonts.tajawal(
+                                          color: const Color(0xFF37928B),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700),
+                                    )
+                                  ],
+                                ),
+                              );
+                            });
                       },
                       child: Text(
                         'حفظ التعديلات',

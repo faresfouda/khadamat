@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:khadamat/theme/apptheme.dart';
-
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String username;
 
@@ -28,18 +26,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
       ),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.notifications_none_rounded,
-                color: AppColors.primary,
-                size: 30,
-              )),
-        )
-      ],
       clipBehavior: Clip.none,
     );
   }

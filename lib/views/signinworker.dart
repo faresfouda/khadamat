@@ -5,17 +5,16 @@ import 'package:khadamat/controllers/Get_encryptedPassword.dart';
 import 'package:khadamat/components/SignView.dart';
 import 'package:khadamat/controllers/user_controller.dart';
 import 'package:khadamat/views/home/mainscreen.dart';
-import 'package:khadamat/views/signinworker.dart';
 
-class Signin extends StatefulWidget {
-  const Signin({super.key});
+class SigninWorker extends StatefulWidget {
+  const SigninWorker({super.key});
   @override
-  State<Signin> createState() => _SigninState();
+  State<SigninWorker> createState() => _SigninState();
 }
 
-class _SigninState extends State<Signin> {
+class _SigninState extends State<SigninWorker> {
   final Getencryptedpassword getencryptedpassword =
-      Get.put(Getencryptedpassword(), permanent: false);
+  Get.put(Getencryptedpassword(), permanent: false);
   AuthController authController = Get.find<AuthController>();
 
   final TextEditingController emailController = TextEditingController();
@@ -31,7 +30,7 @@ class _SigninState extends State<Signin> {
   @override
   Widget build(BuildContext context) {
     return SignView(
-      screentitle: 'تسجيل الدخول',
+      screentitle: 'تسجيل الدخول كعامل',
       iconchild: null,
       Logo: 'assets/sign/signin.svg',
       Child: Column(
@@ -45,7 +44,7 @@ class _SigninState extends State<Signin> {
             controller: emailController,
           ),
           Obx(
-            () => CustomSigntextfield(
+                () => CustomSigntextfield(
               textfield_title: 'كلمة المرور',
               hint_text: 'أدخل كلمة المرور',
               field_icon: IconButton(
@@ -80,29 +79,29 @@ class _SigninState extends State<Signin> {
             return authController.isLoading.value
                 ? const Center(child: CircularProgressIndicator())
                 : FilledButton(
-                    onPressed: () async {
-                      final email = emailController.text.trim();
-                      final password = passwordController.text.trim();
+              onPressed: () async {
+                final email = emailController.text.trim();
+                final password = passwordController.text.trim();
 
-                      if (email.isEmpty || password.isEmpty) {
-                        Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
-                        return;
-                      }
+                if (email.isEmpty || password.isEmpty) {
+                  Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
+                  return;
+                }
 
-                      try {
-                        await authController.login(email, password);
-                        Get.offAll(() => const MainScreen());
-                      } catch (e) {
-                        authController.isLoading.value = false;
-                        Get.snackbar('فشل تسجيل الدخول', e.toString(),
-                            snackPosition: SnackPosition.BOTTOM);
-                      }
-                    },
-                    child: Text(
-                      'تسجيل الدخول',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  );
+                try {
+                  await authController.loginwithphone(email, password);
+                  Get.offAll(() => const MainScreen());
+                } catch (e) {
+                  authController.isLoading.value = false;
+                  Get.snackbar('فشل تسجيل الدخول', e.toString(),
+                      snackPosition: SnackPosition.BOTTOM);
+                }
+              },
+              child: Text(
+                'تسجيل الدخول',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            );
           }),
           const SizedBox(
             height: 16,
@@ -173,20 +172,8 @@ class _SigninState extends State<Signin> {
                       fontWeight: FontWeight.w400,
                       color: Color(0xFF4ECDC4)),
                 ),
-              ),
+              )
             ],
-          ),
-          TextButton(
-            onPressed: () {
-              Get.to(() => const SigninWorker());
-            },
-            child: const Text(
-              'تسجيل الدخول كعامل',
-              style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF4ECDC4)),
-            ),
           )
         ],
       ),

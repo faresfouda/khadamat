@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/controllers/AuthController.dart';
+import 'package:khadamat/controllers/order_controller.dart';
 import 'package:khadamat/controllers/user_controller.dart';
 import 'package:khadamat/services/api/end_point.dart';
+import 'package:khadamat/views/myorders/currentorder/currentorder.dart';
 import 'package:khadamat/views/myorders/currentorder/my_current_order.dart';
 
 class Currentorder extends StatefulWidget {
@@ -14,11 +16,11 @@ class Currentorder extends StatefulWidget {
 }
 
 class _CurrentorderState extends State<Currentorder> {
-  final AuthController authController = Get.find<AuthController>();
+  final OrderController orderController = Get.find<OrderController>();
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AuthController>(builder: (controller) {
+    return GetBuilder<OrderController>(builder: (controller) {
       const String image = 'assets/currentorder/order.png';
       return FutureBuilder(
           future: controller.Currentorder(),
@@ -29,7 +31,7 @@ class _CurrentorderState extends State<Currentorder> {
               );
             } else {
               return Scaffold(
-                  body: controller.MyCurrentOrder.isEmpty
+                  body: controller.pendingOrders.isEmpty
                       ? const Center(
                           child: Image(
                               image: AssetImage(
@@ -37,9 +39,9 @@ class _CurrentorderState extends State<Currentorder> {
                         )
                       : ListView.builder(
                           padding: const EdgeInsets.all(8),
-                          itemCount: controller.MyCurrentOrder.length,
+                          itemCount: controller.pendingOrders.length,
                           itemBuilder: (context, i) {
-                            var orderdetails = controller.MyCurrentOrder[i];
+                            var orderdetails = controller.pendingOrders[i];
                             return Padding(
                                 padding: const EdgeInsets.only(
                                     left: 16, right: 16, top: 16, bottom: 16),

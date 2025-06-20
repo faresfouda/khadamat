@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:khadamat/components/backButton.dart';
+import 'package:khadamat/controllers/order_controller.dart';
 import 'package:khadamat/controllers/user_controller.dart';
 import 'package:khadamat/theme/apptheme.dart';
 import 'package:khadamat/views/myorders/currentorder/editorder/editorder.dart';
@@ -23,7 +24,7 @@ class MyCurrentOrder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AuthController authController = Get.find<AuthController>();
+    final OrderController orderController = Get.find<OrderController>();
     Map<String, dynamic> order = {
       ' رقم الطلب : ': orderid,
       ' فئة الطلب : ': orderCategory,
@@ -41,7 +42,7 @@ class MyCurrentOrder extends StatelessWidget {
         ),
       ),
       body: FutureBuilder(
-          future: authController.Currentorder(),
+          future: orderController.Currentorder(),
           builder: (Context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(

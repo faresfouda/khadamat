@@ -146,14 +146,13 @@ class SignUp extends StatelessWidget {
       Get.snackbar('خطأ', 'يرجى إدخال البريد وكلمة المرور');
       return;
     }
+
     try {
-      await authController.register(name, email, password);
-      authController.isLoading.value = true;
+      await authController.register(name,email, password);
       Get.offAll(() => const MainScreen());
     } catch (e) {
       authController.isLoading.value = false;
-      Get.snackbar('فشل تسجيل الدخول',
-          'يوجد بالفعل مستخدم مسجل بهذا البريد الإلكتروني أو رقم الهاتف',
+      Get.snackbar('فشل تسجيل الدخول', e.toString(),
           snackPosition: SnackPosition.BOTTOM);
     }
   }

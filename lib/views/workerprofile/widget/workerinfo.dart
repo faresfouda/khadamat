@@ -115,17 +115,16 @@ class _WorkerInfoState extends State<WorkerInfo> {
                   controller: _pageController,
                   itemCount: workerinfo.length,
                   itemBuilder: (context, i) {
-                    return Expanded(
-                      child: Column(
-                        children: [
-                          workerinfo.values.toList()[i],
-                          const SizedBox(
-                            height: 12,
-                          ),
-                        ],
-                      ),
+                    return Column(
+                      children: [
+                        workerinfo.values.toList()[i],
+                        const SizedBox(
+                          height: 12,
+                        ),
+                      ],
                     );
-                  }),
+                  }
+              ),
             ),
             const ConfirmButton()
           ],

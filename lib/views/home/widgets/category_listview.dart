@@ -12,7 +12,7 @@ class CategoryListview extends StatelessWidget {
 
     return Obx(() {
       if (categoryController.categories.isEmpty) {
-        categoryController.LoadTopLevelCategory(); // call once if needed
+        categoryController.LoadTopLevelCategory();
         return const Center(child: CircularProgressIndicator());
       }
 

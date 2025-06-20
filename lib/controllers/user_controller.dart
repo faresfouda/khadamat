@@ -44,7 +44,6 @@ class AuthController extends GetxController {
     if (response['success'] == true) {
       user.value = User.fromJson(response['data']['user']);
       user.value!.token = response['data']['token'];
-      token = user.value!.token as RxString;
       isLoading.value = false;
 
       final prefs = await SharedPreferences.getInstance();
@@ -62,45 +61,21 @@ class AuthController extends GetxController {
     await prefs.remove('role');
     user.value = null;
   }
-
-  Future Currentorder() async {
+  Future<void> loginwithphone(String phone, String password) async {
     isLoading.value = true;
-    final prefs = await SharedPreferences.getInstance();
-    final token = prefs.getString('token') ?? '';
-    final response = await authService.getCurrentOrder(token: token);
+    final response = await authService.Loginwithphone(phone: phone, password: password);
+
     if (response['success'] == true) {
-      MyCurrentOrder.value =
-          List<Map<String, dynamic>>.from(response['data']['orders']);
-      order.value = Ordermodel.fromJson(response['data']);
+      user.value = User.fromJson(response['data']['user']);
+      user.value!.token = response['data']['token'];
+      isLoading.value = false;
+
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('token', user.value!.token!);
+      await prefs.setString('role', response['data']['user']['role'] ?? 'user');
     } else {
       isLoading.value = false;
-      throw Exception(response['message'] ?? 'Failed to fetch current orders');
-    }
-  }
-
-  Future updateOrder(int orderid, String orderCategory, String orderAdress,
-      String orderDetails) async {
-    isLoading.value = true;
-    final prefs = await SharedPreferences.getInstance();
-    final token = prefs.getString('token') ?? '';
-    try {
-      final response = await authService.updateOrder(
-          orderId: orderid,
-          orderCategory: orderCategory,
-          orderAdress: orderAdress,
-          orderDetails: orderDetails,
-          token: token);
-      if (response['success'] == true) {
-        MyCurrentOrder.value =
-            List<Map<String, dynamic>>.from(response['data']['orders']);
-        order.value = Ordermodel.fromJson(response['data']['order']);
-        isLoading.value = false;
-      } else {
-        throw Exception(
-            response['error'] ?? 'Failed to fetch current orders');
-      }
-    } on Exception catch (e) {
-      print(Exception());
+      throw Exception(response['message'] ?? 'Login failed');
     }
   }
 }

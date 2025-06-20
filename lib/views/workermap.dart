@@ -8,7 +8,8 @@ import 'package:khadamat/views/home/widgets/search_button.dart';
 import 'package:khadamat/views/workerssearch.dart';
 
 class Workermap extends StatelessWidget {
-  const Workermap({super.key});
+  final int service_id;
+  const Workermap({super.key, required int this.service_id});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class Workermap extends StatelessWidget {
               padding: EdgeInsets.only(right: 12),
               child: Back_Button(color: AppColors.primary)),
         ),
-        body: const Stack(
+        body:  Stack(
           alignment: Alignment.center,
           children: [
             GoogleMap(
@@ -42,7 +43,9 @@ class Workermap extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                WorkersListView()
+                WorkersListView(
+                  serviceId: service_id,
+                )
               ],
             ),
           ],

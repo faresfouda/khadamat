@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     userController = Get.find<UserController>();
 
+
     try {
       userController.Loadprofile();
       userController.getoffers();
